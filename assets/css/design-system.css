@@ -1,0 +1,494 @@
+/*
+ * Platform Design System v1
+ * Shared visual language for all consumer pages.
+ * UI typography: Alexandria. Quran / book-reading text may keep its dedicated reader fonts.
+ */
+:root {
+  color-scheme: light;
+  --ds-font-ui: 'Alexandria', sans-serif;
+  --ds-font-quran: 'Amiri', 'Noto Naskh Arabic', serif;
+  --ds-bg: #f7f8f4;
+  --ds-surface: #ffffff;
+  --ds-surface-soft: #f0f3ed;
+  --ds-surface-tint: #e9f0e7;
+  --ds-text: #171c18;
+  --ds-text-strong: #1c2820;
+  --ds-muted: #657168;
+  --ds-subtle: #879188;
+  --ds-border: #e2e8e0;
+  --ds-brand: #315b40;
+  --ds-brand-strong: #214a34;
+  --ds-brand-soft: #e5eee3;
+  --ds-gold: #b59a62;
+  --ds-radius-sm: 10px;
+  --ds-radius-md: 15px;
+  --ds-radius-lg: 20px;
+  --ds-shadow-card: 0 7px 24px rgba(25, 48, 31, .055);
+  --ds-banner: linear-gradient(115deg, #e9f0e7 0%, #f4f4ed 58%, #f7f3ea 100%);
+}
+
+html { font-family: var(--ds-font-ui); }
+body {
+  font-family: var(--ds-font-ui) !important;
+  font-size: 14px;
+  line-height: 1.75;
+  background: var(--ds-bg);
+  color: var(--ds-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+button, input, select, textarea, option, label {
+  font-family: var(--ds-font-ui) !important;
+}
+.screen-view { color: var(--ds-text); }
+.screen-view :is(h1,h2,h3,h4,h5,h6) {
+  font-family: var(--ds-font-ui) !important;
+  color: var(--ds-text-strong);
+  font-weight: 700;
+  letter-spacing: -.018em;
+  text-wrap: pretty;
+}
+.screen-view h1 { font-size: clamp(26px, 2.6vw, 36px); line-height: 1.32; }
+.screen-view h2 { font-size: clamp(20px, 1.85vw, 26px); line-height: 1.4; }
+.screen-view h3 { font-size: clamp(16px, 1.3vw, 20px); line-height: 1.45; }
+.screen-view h4 { font-size: 15px; line-height: 1.5; }
+.screen-view p { line-height: 1.85; }
+.screen-view :is(small,.muted,.text-muted,.section-description) { color: var(--ds-muted); }
+.screen-view :is(input,select,textarea) {
+  font-family: var(--ds-font-ui) !important;
+  border-color: var(--ds-border);
+}
+.screen-view :is(button,a) { -webkit-tap-highlight-color: transparent; }
+
+/* Shared page banner: the exact calm sage treatment used by adhkar.html. */
+:is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) {
+  background: var(--ds-banner) !important;
+  background-image: var(--ds-banner) !important;
+  background-color: #edf2eb !important;
+  color: #1e402f !important;
+  border-color: #e1e8df !important;
+  box-shadow: none !important;
+}
+:is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) :is(h1,h2,h3,h4,.hero-title,.hero-kicker,.eyebrow,.section-kicker) {
+  color: #1e402f !important;
+  text-shadow: none !important;
+}
+:is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) :is(p,.hero-description,.hero-subtitle,.subtitle,.description,.muted,.meta,small) {
+  color: #657568 !important;
+}
+:is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) :is(.page-search-shell,.archive-search,.articles-hero-search,.catalog-search,
+      .name-directory-search,.knowledge-search-field,.home-search) {
+  background: #fff !important;
+  border: 1px solid #dfe7dc !important;
+  box-shadow: 0 8px 22px rgba(26, 51, 32, .09) !important;
+}
+:is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) :is(.page-search-shell,.archive-search,.articles-hero-search,.catalog-search,
+      .name-directory-search,.knowledge-search-field,.home-search) input {
+  color: #171c18 !important;
+  background: transparent !important;
+}
+:is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) :is(.page-search-shell,.archive-search,.articles-hero-search,.catalog-search,
+      .name-directory-search,.knowledge-search-field,.home-search) input::placeholder {
+  color: #818b83 !important;
+  opacity: 1 !important;
+}
+:is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) :is(.page-search-submit,.search-submit,.catalog-search button) {
+  background: #315b40 !important;
+  color: #fff !important;
+  border-color: #315b40 !important;
+}
+/* Banner media stays out of the shared hero; imagery belongs in content cards. */
+:is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) > img { display: none !important; }
+
+/* Shared card, filter and form rhythm. Page-specific feature colors remain intact. */
+.screen-view :is(
+  .calm-card,.archive-card,.feature-card,.tool-card,.book-card,.name-card,
+  .lexicon-result,.profile-panel,.profile-stat-card,.archive-filter-row,
+  .store-category-card,.knowledge-card,.learning-card,.article-card,
+  .pathway-card,.bibliography-card,.companion-card,.scholar-card,.prophet-card,
+  .adhkar-v32-card,.adhkar-side-card,.zakat-v32-card,.article-media-hub
+) {
+  border-radius: var(--ds-radius-md);
+  border-color: var(--ds-border);
+  box-shadow: var(--ds-shadow-card);
+}
+.screen-view :is(.page-search-shell,.archive-search,.knowledge-search-field) input:focus,
+.screen-view :is(input,select,textarea):focus {
+  outline: none;
+  border-color: #9db59b !important;
+  box-shadow: 0 0 0 3px rgba(88, 124, 88, .13) !important;
+}
+
+/* Reader typography is intentional: do not replace the Quran / book reading faces. */
+:is(.font-quran,.font-naskh,.ayah-text,#quran-ayah-list,.quran-ayah,
+    .mushaf-page-frame,.mushaf-page-frame .mushaf-surah-header h2,
+    .adhkar-card-text,.reader-a4-content,.reader-a4-heading) {
+  font-family: var(--ds-font-quran) !important;
+}
+#quran-ayah-list,.quran-ayah,.ayah-text { color: #20251f; }
+
+/* Reliable dark theme for every consumer page, including pages with their own CSS. */
+html.dark {
+  color-scheme: dark;
+  --ds-bg: #111713;
+  --ds-surface: #1b231e;
+  --ds-surface-soft: #222c25;
+  --ds-surface-tint: #27362c;
+  --ds-text: #edf1ed;
+  --ds-text-strong: #f0f3ef;
+  --ds-muted: #b0bbb2;
+  --ds-subtle: #8e9b91;
+  --ds-border: #354239;
+  --ds-brand: #a9c49b;
+  --ds-brand-strong: #c0d6b1;
+  --ds-brand-soft: #2b3a2e;
+  --ds-shadow-card: 0 8px 26px rgba(0,0,0,.16);
+  background: var(--ds-bg) !important;
+  color: var(--ds-text) !important;
+}
+html.dark body, html.dark main, html.dark footer,
+html.dark .screen-view, body.site-theme-dark {
+  background-color: var(--ds-bg) !important;
+  color: var(--ds-text) !important;
+}
+html.dark .screen-view :is(h1,h2,h3,h4,h5,h6,strong,b) {
+  color: var(--ds-text-strong) !important;
+}
+html.dark .screen-view :is(p,small,label,.muted,.text-muted,.section-description) {
+  color: var(--ds-muted) !important;
+}
+html.dark .screen-view :is(
+  .calm-card,.archive-card,.feature-card,.tool-card,.book-card,.name-card,
+  .lexicon-result,.profile-panel,.profile-stat-card,.archive-filter-row,
+  .store-category-card,.knowledge-card,.learning-card,.article-card,
+  .pathway-card,.bibliography-card,.companion-card,.scholar-card,.prophet-card,
+  .adhkar-v32-card,.adhkar-side-card,.zakat-v32-card,.article-media-hub,
+  .article-media-file,.article-media-video-empty,.zakat-v32-guidance article
+) {
+  background: var(--ds-surface) !important;
+  border-color: var(--ds-border) !important;
+  color: var(--ds-text) !important;
+  box-shadow: var(--ds-shadow-card) !important;
+}
+html.dark .screen-view :is(input,select,textarea),
+html.dark .screen-view [class~="bg-white"],
+html.dark .screen-view [class*="bg-white/"],
+html.dark .screen-view [class*="bg-[#fcfbf8"],
+html.dark .screen-view [class*="bg-[#f8f6f0"],
+html.dark .screen-view [class*="bg-[#fffefa"],
+html.dark .screen-view [class*="bg-[#f5f7ef"],
+html.dark .screen-view [class*="bg-[#f6f9f3"],
+html.dark .screen-view [class*="bg-[#f2f6f1"],
+html.dark .screen-view [class*="bg-[#eef2ec"],
+html.dark .screen-view [class*="bg-[#e9f1e5"] {
+  background: var(--ds-surface-soft) !important;
+  border-color: var(--ds-border) !important;
+  color: var(--ds-text) !important;
+}
+html.dark .screen-view :is(input,select,textarea)::placeholder { color: #8d9b91 !important; }
+html.dark .screen-view :is(button,a) { outline-color: #687b69; }
+html.dark .screen-view .ui-icon { color: #b5c9a5; }
+
+/* The common banner adapts to the selected theme, rather than remaining light on dark pages. */
+html.dark :is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) {
+  background: linear-gradient(115deg, #1b2b21 0%, #23372a 58%, #202f25 100%) !important;
+  background-image: linear-gradient(115deg, #1b2b21 0%, #23372a 58%, #202f25 100%) !important;
+  background-color: #1f3025 !important;
+  color: #edf2ec !important;
+  border-color: #35483a !important;
+}
+html.dark :is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) :is(h1,h2,h3,h4,.hero-title,.hero-kicker,.eyebrow,.section-kicker) { color: #f0f4ed !important; }
+html.dark :is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) :is(p,.hero-description,.hero-subtitle,.subtitle,.description,.muted,.meta,small) { color: #bcc9bd !important; }
+html.dark :is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) :is(.page-search-shell,.archive-search,.articles-hero-search,.catalog-search,
+      .name-directory-search,.knowledge-search-field,.home-search) {
+  background: #202b23 !important;
+  border-color: #405344 !important;
+  box-shadow: none !important;
+}
+html.dark :is(
+  .inner-page-hero,.archive-hero,.shared-page-hero,.feature-hero,.knowledge-hero,
+  .knowledge-hub-hero,.articles-hero,.articles-hero-v2,.name-directory-hero,
+  .name-detail-hero,.store-hero,.feed-hero,.article-detail-hero-v2,
+  .book-detail-v29-hero,.zakat-v32-hero,.adhkar-v32-hero,.quran-page-hero,
+  .books-catalog-hero
+) :is(.page-search-shell,.archive-search,.articles-hero-search,.catalog-search,
+      .name-directory-search,.knowledge-search-field,.home-search) input { color: #f0f3ee !important; }
+
+/* Specific dark-mode gaps found in the adhkar and zakat experiences. */
+html.dark .adhkar-v32 { background: var(--ds-bg) !important; }
+html.dark .adhkar-v32 :is(.adhkar-v32-topline h2,.adhkar-progress-copy h3,.adhkar-side-card h3,
+  .adhkar-v32-card strong,.adhkar-card-text,.adhkar-favorite-link) { color: var(--ds-text-strong) !important; }
+html.dark .adhkar-v32 :is(.adhkar-v32-categories button,.adhkar-v32-progress-card,
+  .adhkar-v32-reading-tools,.adhkar-v32-card,.adhkar-v32-note,.adhkar-today-stats>div) {
+  background: var(--ds-surface) !important; border-color: var(--ds-border) !important;
+}
+html.dark .adhkar-v32 .adhkar-daily-card { background: #26362a !important; border-color: #405444 !important; }
+html.dark .adhkar-v32 .adhkar-progress-ring:before { background: var(--ds-surface) !important; }
+html.dark .adhkar-v32 .adhkar-card-footer { border-color: var(--ds-border) !important; }
+html.dark .page-zakat-v32 { background: var(--ds-bg) !important; }
+html.dark .zakat-v32-card, html.dark .zakat-v32-guidance article { background: var(--ds-surface) !important; color: var(--ds-text) !important; }
+html.dark .zakat-v32-card :is(h2,strong,label), html.dark .zakat-v32-guidance strong { color: var(--ds-text-strong) !important; }
+html.dark .zakat-v32-fields :is(input,select), html.dark .zakat-v32-subcard :is(input,select) { background: #202b23 !important; color: var(--ds-text) !important; border-color: var(--ds-border) !important; }
+
+/* Do not let the site theme repaint the actual paper inside the Quran / book reader. */
+html.dark .mushaf-page-frame:not(.theme-dark) { color: #20251f; }
+html.dark #screen-book-reader .reader-a4-page { background: var(--reader-paper, #fffdf8); color: #242824; }
+html.dark #screen-book-reader .reader-a4-content { color: inherit; }
+
+@media (max-width: 760px) {
+  body { font-size: 13px; }
+  .screen-view h1 { font-size: clamp(24px, 6vw, 30px); }
+  .screen-view h2 { font-size: clamp(19px, 4.8vw, 23px); }
+  .screen-view h3 { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+/* Additional custom component surfaces that previously missed the site-wide dark palette. */
+html.dark .screen-view :is(
+  .feature-panel,.feature-tab-panel,.hajj-info-card,.knowledge-panel,.knowledge-destination-card,
+  .knowledge-filter-bar,.feed-side-card,.account-adhan-card,.article-card-v2,
+  .reader-side-panel,.reader-sidebar,.reader-sidebar-tabs,.article-reading-sidebar-v2,
+  .article-toc-card,.article-sidebar-card,.article-reading-main-v2,.article-related-card,
+  .name-detail-info-card,.name-detail-side-card,.name-detail-reflection-panel,
+  .quran-tafsir-panel,.quran-tafsir-verse-card,.quran-tafsir-card-label,
+  .private-note-card,.profile-reminder-card,.profile-privacy-panel,.feature-preview-card,
+  .feature-card,.knowledge-card,.catalog-interaction-panel,.search-result-intro,
+  .catalog-card,.catalog-filter-panel,.catalog-toolbar,.hadith-filter-toolbar,
+  .hadith-filter-controls,.detail-panel
+) {
+  background: var(--ds-surface) !important;
+  border-color: var(--ds-border) !important;
+  color: var(--ds-text) !important;
+  box-shadow: var(--ds-shadow-card) !important;
+}
+html.dark .screen-view :is(
+  .feature-panel,.feature-tab-panel,.hajj-info-card,.knowledge-panel,.knowledge-destination-card,
+  .knowledge-filter-bar,.feed-side-card,.account-adhan-card,.article-card-v2,
+  .reader-side-panel,.reader-sidebar,.reader-sidebar-tabs,.article-reading-sidebar-v2,
+  .article-toc-card,.article-sidebar-card,.article-reading-main-v2,.article-related-card,
+  .name-detail-info-card,.name-detail-side-card,.name-detail-reflection-panel,
+  .quran-tafsir-panel,.quran-tafsir-verse-card,.quran-tafsir-card-label,
+  .private-note-card,.profile-reminder-card,.profile-privacy-panel,.feature-preview-card,
+  .feature-card,.knowledge-card,.catalog-interaction-panel,.search-result-intro,
+  .catalog-card,.catalog-filter-panel,.catalog-toolbar,.hadith-filter-toolbar,
+  .hadith-filter-controls,.detail-panel
+) :is(h1,h2,h3,h4,strong,b) { color: var(--ds-text-strong) !important; }
+html.dark .screen-view :is(
+  .feature-panel,.feature-tab-panel,.hajj-info-card,.knowledge-panel,.knowledge-destination-card,
+  .knowledge-filter-bar,.feed-side-card,.account-adhan-card,.article-card-v2,
+  .reader-side-panel,.reader-sidebar,.reader-sidebar-tabs,.article-reading-sidebar-v2,
+  .article-toc-card,.article-sidebar-card,.article-reading-main-v2,.article-related-card,
+  .name-detail-info-card,.name-detail-side-card,.name-detail-reflection-panel,
+  .quran-tafsir-panel,.quran-tafsir-verse-card,.quran-tafsir-card-label,
+  .private-note-card,.profile-reminder-card,.profile-privacy-panel,.feature-preview-card,
+  .feature-card,.knowledge-card,.catalog-interaction-panel,.search-result-intro,
+  .catalog-card,.catalog-filter-panel,.catalog-toolbar,.hadith-filter-toolbar,
+  .hadith-filter-controls,.detail-panel
+) :is(p,small,label,li,.muted) { color: var(--ds-muted) !important; }
+html.dark .adhkar-v32 .adhkar-searchbox,
+html.dark .adhkar-v32 .adhkar-searchbox input,
+html.dark .adhkar-v32 .adhkar-v32-reading-tools select,
+html.dark .adhkar-v32 .adhkar-v32-reading-tools button:not(.adhkar-reset-day),
+html.dark .adhkar-v32 .adhkar-card-actions button {
+  background: var(--ds-surface-soft) !important;
+  color: var(--ds-text) !important;
+  border-color: var(--ds-border) !important;
+}
+html.dark .adhkar-v32 .adhkar-card-index,
+html.dark .adhkar-v32 .adhkar-today-stats>div,
+html.dark .adhkar-v32 .adhkar-daily-card .ui-icon {
+  background: #2b392e !important;
+  color: #c0d1b6 !important;
+}
+html.dark .zakat-v32-subcard,
+html.dark .zakat-v32-nisab,
+html.dark .zakat-v32-hawl,
+html.dark .zakat-v32-preview {
+  background: var(--ds-surface-soft) !important;
+  border-color: var(--ds-border) !important;
+  color: var(--ds-text) !important;
+}
+html.dark .zakat-v32-subtitle,
+html.dark .zakat-v32-subtitle strong,
+html.dark .zakat-v32-nisab strong,
+html.dark .zakat-v32-hawl strong { color: var(--ds-text-strong) !important; }
+html.dark .zakat-v32-subtitle span { background: #2c3930 !important; color: var(--ds-muted) !important; }
+html.dark .account-adhan-card-title strong { color: var(--ds-text-strong) !important; }
+html.dark .account-adhan-card-title small { color: var(--ds-muted) !important; }
+
+/* Card titles stay compact; the shared heading scale is for page/section headings. */
+.screen-view .catalog-card h2,
+.screen-view .catalog-page .catalog-card h3 { font-size: 14px !important; line-height: 1.7 !important; }
+.screen-view .article-card-v2 h3 { font-size: 15px !important; line-height: 1.8 !important; }
+.screen-view :is(.adhkar-side-card h3,.adhkar-v32-topline h2) { font-size: 15px !important; }
+.screen-view .zakat-v32-card-heading h2 { font-size: 19px !important; }
+.screen-view :is(.knowledge-card h3,.feature-card h3,.tool-card h3,.book-card h3) { font-size: 15px !important; }
+
+/* Small UI surfaces and controls inherit the same contrast model in dark mode. */
+html.dark .screen-view :is(.catalog-card-tag,.filter-label,.name-filter,.archive-filter,
+  .feed-filter,.article-category-chip,.adhkar-card-index,.zakat-v32-card-icon,
+  .knowledge-panel-icon,.catalog-card-icon) {
+  background: #2a382e !important;
+  border-color: #3c4c40 !important;
+  color: #c5d3bd !important;
+}
+html.dark .screen-view :is(.detail-open-btn,.article-media-actions button,
+  .article-media-tabs button,.adhkar-card-actions button,.adhkar-v32-reading-tools button,
+  .zakat-v32-add,.zakat-v32-actions button.secondary) {
+  background: #242e27 !important;
+  color: #dce6dc !important;
+  border-color: #3a4a3e !important;
+}
+html.dark .screen-view :is(.article-card-v2 h3,.catalog-card h2,.knowledge-card h3,
+  .feature-card h3,.tool-card h3,.book-card h3) { color: var(--ds-text-strong) !important; }
+
+/* The homepage hero belongs to the same banner family; keep its layout, unify its palette. */
+#screen-home .home-v43-hero {
+  background: var(--ds-banner) !important;
+  background-image: var(--ds-banner) !important;
+  background-color: #edf2eb !important;
+  color: #1e402f !important;
+  border-bottom: 1px solid #e1e8df;
+}
+#screen-home .home-v43-hero::before {
+  opacity: .75;
+  background: radial-gradient(ellipse at 78% 20%, rgba(95,129,91,.12), transparent 36%),
+              radial-gradient(ellipse at 12% 90%, rgba(181,154,98,.10), transparent 32%);
+}
+#screen-home .home-v43-hero::after {
+  border-color: rgba(55,91,61,.12);
+  box-shadow: 0 0 0 34px rgba(55,91,61,.025), 0 0 0 74px rgba(55,91,61,.02), 0 0 0 124px rgba(55,91,61,.014);
+}
+#screen-home .home-v43-hero :is(h1,h2,h3,h4) { color: #1e402f !important; text-shadow: none !important; }
+#screen-home .home-v43-hero-copy>p { color: #657568 !important; }
+#screen-home .home-v43-eyebrow {
+  color: #536b57 !important;
+  background: rgba(255,255,255,.62) !important;
+  border-color: #d7e2d5 !important;
+}
+#screen-home .home-v43-eyebrow .ui-icon { color: #8b7954 !important; }
+#screen-home .home-v43-quick-links { color: #667769 !important; }
+#screen-home .home-v43-quick-links button {
+  color: #3b6244 !important;
+  background: rgba(255,255,255,.68) !important;
+  border-color: #d9e4d7 !important;
+}
+#screen-home .home-v43-quick-links button:hover { background: #fff !important; border-color: #b9cdb7 !important; }
+#screen-home .home-v43-hero-aside {
+  background: rgba(255,255,255,.72) !important;
+  border-color: #dbe5d9 !important;
+  box-shadow: 0 16px 38px rgba(34,66,39,.08) !important;
+  backdrop-filter: blur(9px);
+}
+#screen-home .home-v43-aside-top { color: #637369 !important; border-color: #e3eae1 !important; }
+#screen-home .home-v43-aside-top .ui-icon { color: #957f54 !important; }
+#screen-home .home-v43-aside-main { color: #263b2c !important; }
+#screen-home .home-v43-aside-main strong { color: #263b2c !important; }
+#screen-home .home-v43-aside-main small { color: #728076 !important; }
+#screen-home .home-v43-aside-mark { background: #eaf1e8 !important; color: #466b4c !important; }
+#screen-home .home-v43-aside-arrow { color: #758678 !important; }
+#screen-home .home-v43-aside-list { border-color: #e3eae1 !important; }
+#screen-home .home-v43-aside-list>div { color: #53685a !important; }
+#screen-home .home-v43-aside-number { color: #927d54 !important; }
+#screen-home .home-v43-hero-bottom { color: #7a897e !important; }
+#screen-home .home-v43-scroll-cue { color: #55705a !important; border-color: #cbd8c9 !important; }
+html.dark #screen-home .home-v43-hero {
+  background: linear-gradient(115deg, #1b2b21 0%, #23372a 58%, #202f25 100%) !important;
+  background-image: linear-gradient(115deg, #1b2b21 0%, #23372a 58%, #202f25 100%) !important;
+  background-color: #1f3025 !important;
+  color: #edf2ec !important;
+}
+html.dark #screen-home .home-v43-hero :is(h1,h2,h3,h4) { color: #f0f4ed !important; }
+html.dark #screen-home .home-v43-hero-copy>p,
+html.dark #screen-home .home-v43-hero-bottom { color: #bcc9bd !important; }
+html.dark #screen-home .home-v43-eyebrow { color: #d5e0d4 !important; background: rgba(255,255,255,.055) !important; border-color: rgba(255,255,255,.18) !important; }
+html.dark #screen-home .home-v43-quick-links { color: #b9c9bb !important; }
+html.dark #screen-home .home-v43-quick-links button { color: #e8eee5 !important; background: rgba(255,255,255,.06) !important; border-color: rgba(255,255,255,.2) !important; }
+html.dark #screen-home .home-v43-hero-aside { background: rgba(255,255,255,.07) !important; border-color: rgba(255,255,255,.18) !important; }
+html.dark #screen-home .home-v43-aside-top,
+html.dark #screen-home .home-v43-aside-main,
+html.dark #screen-home .home-v43-aside-main strong,
+html.dark #screen-home .home-v43-aside-list>div { color: #dfe8dd !important; }
+html.dark #screen-home .home-v43-aside-main small { color: #bdcbbb !important; }
+html.dark #screen-home .home-v43-aside-mark { background: rgba(255,255,255,.11) !important; color: #d7dfc8 !important; }
+html.dark #screen-home .home-v43-aside-list,
+html.dark #screen-home .home-v43-aside-top { border-color: rgba(255,255,255,.12) !important; }
+
+/* Enforce the single UI family throughout the site, while preserving dedicated reading faces. */
+.screen-view :not(svg):not(svg *):not(.mushaf-page-frame):not(.mushaf-page-frame *):not(#quran-ayah-list):not(#quran-ayah-list *):not(.quran-ayah):not(.quran-ayah *):not(.ayah-text):not(.ayah-text *):not(.font-quran):not(.font-quran *):not(.font-naskh):not(.font-naskh *):not(.reader-a4-content):not(.reader-a4-content *):not(.adhkar-card-text) {
+  font-family: var(--ds-font-ui) !important;
+}

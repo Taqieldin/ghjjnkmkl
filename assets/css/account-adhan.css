@@ -1,0 +1,41 @@
+/* V37 — adhan preferences live inside private account settings. */
+.account-adhan-settings{max-width:1200px;margin:34px auto 80px;padding:0 20px;scroll-margin-top:110px;color:#1b2b22}
+.account-adhan-heading{display:flex;align-items:center;gap:16px;margin:0 0 18px}
+.account-adhan-heading-icon{width:54px;height:54px;display:grid;place-items:center;border-radius:17px;background:#e7efe5;color:#234c35;border:1px solid #d7e3d4}
+.account-adhan-heading-icon .ui-icon{width:24px;height:24px}
+.account-adhan-kicker{display:block;color:#718274;font-size:10px;font-weight:800;margin-bottom:5px}
+.account-adhan-heading h2{font-size:22px;font-weight:800;color:#1b2a20;margin:0 0 5px}
+.account-adhan-heading p{font-size:12px;line-height:1.9;color:#66746a;margin:0}
+.account-adhan-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:16px;align-items:start}
+.account-adhan-card{background:#fff;border:1px solid #e3e9e1;border-radius:20px;padding:20px;box-shadow:0 8px 26px rgba(23,49,31,.045)}
+.account-adhan-card-title{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:15px;border-bottom:1px solid #edf0eb;margin-bottom:8px}
+.account-adhan-card-title strong{display:block;color:#1f3025;font-size:14px;font-weight:800}
+.account-adhan-card-title small{display:block;color:#7a877d;font-size:10px;margin-top:5px}
+.account-adhan-card-title>.ui-icon{color:#48664f;width:19px;height:19px}
+.account-prayer-toggles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding-top:8px}
+.account-prayer-toggle{min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 13px;border:1px solid #edf0eb;border-radius:13px;background:#fbfcfa;transition:background .18s,border-color .18s}
+.account-prayer-toggle:hover{background:#f3f7f1;border-color:#dbe6d8}
+.account-prayer-toggle b{display:block;color:#27352b;font-size:12px;font-weight:800}
+.account-prayer-toggle small{display:block;color:#89948b;font-size:9px;margin-top:4px}
+.account-prayer-toggle input,.account-adhan-check input{accent-color:#315d40;width:17px;height:17px;flex:0 0 auto}
+.account-prayer-toggle.is-disabled{opacity:.48}
+.account-switch{display:inline-flex;align-items:center;cursor:pointer}
+.account-switch input{position:absolute;opacity:0;width:1px;height:1px}
+.account-switch span{width:42px;height:24px;border-radius:99px;background:#d9dfd8;position:relative;transition:background .2s}
+.account-switch span:after{content:"";position:absolute;top:3px;right:3px;width:18px;height:18px;border-radius:50%;background:white;box-shadow:0 1px 3px #0002;transition:transform .2s}
+.account-switch input:checked+span{background:#315d40}
+.account-switch input:checked+span:after{transform:translateX(-18px)}
+.account-switch input:focus-visible+span{outline:2px solid #6c956f;outline-offset:3px}
+.account-adhan-field{display:block;margin:13px 0;color:#435347;font-size:10px;font-weight:800}
+.account-adhan-field select{display:block;width:100%;height:44px;margin-top:7px;padding:0 12px;border:1px solid #e1e8df;border-radius:11px;background:#fbfcfa;color:#26352a;font:inherit;font-weight:600;outline:none}
+.account-adhan-field select:focus{border-color:#75967a;box-shadow:0 0 0 3px #75967a20}
+.account-adhan-check{display:flex;align-items:center;gap:9px;margin:13px 0;color:#59675d;font-size:10px;line-height:1.7}
+.account-adhan-save{width:100%;min-height:45px;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;background:#244a33;color:white;font-size:11px;font-weight:800;cursor:pointer;transition:background .18s,transform .18s}
+.account-adhan-save:hover{background:#315d40;transform:translateY(-1px)}
+.account-adhan-save .ui-icon{width:15px;height:15px}
+.account-adhan-feedback{min-height:20px;color:#77867a;font-size:9px;line-height:1.8;margin:10px 0 0}
+.account-adhan-note{display:flex;align-items:flex-start;gap:10px;margin-top:14px;padding:14px 16px;border-radius:13px;background:#f1f5ef;border:1px solid #e2eae0;color:#66756a}
+.account-adhan-note .ui-icon{flex:0 0 auto;color:#506d52;margin-top:2px}
+.account-adhan-note p{font-size:10px;line-height:1.9;margin:0}
+@media(max-width:760px){.account-adhan-layout{grid-template-columns:1fr}.account-adhan-heading{align-items:flex-start}.account-adhan-heading h2{font-size:19px}.account-adhan-settings{padding:0 14px}.account-adhan-card{padding:15px}.account-prayer-toggles{gap:7px}.account-prayer-toggle{padding:10px;min-height:60px}}
+@media(max-width:380px){.account-prayer-toggles{grid-template-columns:1fr}}

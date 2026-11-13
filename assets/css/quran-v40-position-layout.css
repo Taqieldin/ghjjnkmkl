@@ -1,0 +1,75 @@
+/* V40 — Place the Mushaf display mode buttons inside the existing position bar. */
+#screen-quran .quran-position-under-hero .quran-session-strip {
+  grid-template-columns:minmax(185px,1fr) minmax(340px,1.45fr) minmax(205px,.82fr) auto !important;
+  align-items:center !important;
+}
+#screen-quran .quran-session-layout {
+  min-width:0 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+}
+#screen-quran .quran-session-layout .quran-layout-switch {
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:3px !important;
+  min-width:0 !important;
+  padding:4px !important;
+  border:1px solid rgba(226,239,222,.18) !important;
+  border-radius:12px !important;
+  background:#102f22 !important;
+}
+#screen-quran .quran-session-layout .quran-layout-button {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:6px !important;
+  min-width:0 !important;
+  min-height:35px !important;
+  padding:0 10px !important;
+  border:1px solid transparent !important;
+  border-radius:8px !important;
+  background:transparent !important;
+  color:#d8e3d4 !important;
+  font:700 9px Alexandria,sans-serif !important;
+  line-height:1.4 !important;
+  white-space:nowrap !important;
+  box-shadow:none !important;
+}
+#screen-quran .quran-session-layout .quran-layout-button .ui-icon {
+  color:#c5d8bc !important;
+  flex:0 0 auto !important;
+}
+#screen-quran .quran-session-layout .quran-layout-button.is-active {
+  color:#152d1f !important;
+  background:#e2eddc !important;
+  border-color:#d3e2cb !important;
+  box-shadow:0 2px 7px rgba(0,0,0,.12) !important;
+}
+#screen-quran .quran-session-layout .quran-layout-button.is-active .ui-icon {
+  color:#244b31 !important;
+}
+#screen-quran .quran-session-layout .quran-layout-button:focus-visible {
+  outline:2px solid #d9e8cd !important;
+  outline-offset:2px !important;
+}
+@media (max-width:1120px) {
+  #screen-quran .quran-position-under-hero .quran-session-strip {
+    grid-template-columns:minmax(210px,1fr) minmax(270px,1.15fr) minmax(215px,.9fr) !important;
+  }
+  #screen-quran .quran-position-under-hero .quran-session-progress { grid-column:1/-1 !important; }
+  #screen-quran .quran-position-under-hero .quran-session-layout { justify-content:stretch !important; }
+  #screen-quran .quran-session-layout .quran-layout-switch { width:100% !important; }
+  #screen-quran .quran-session-layout .quran-layout-button { flex:1 1 0 !important; }
+}
+@media (max-width:760px) {
+  #screen-quran .quran-position-under-hero .quran-session-strip {
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:stretch !important;
+  }
+  #screen-quran .quran-position-under-hero .quran-session-layout { width:100% !important; }
+  #screen-quran .quran-session-layout .quran-layout-switch { width:100% !important; }
+  #screen-quran .quran-session-layout .quran-layout-button { flex:1 1 0 !important; padding-inline:6px !important; font-size:8px !important; }
+}

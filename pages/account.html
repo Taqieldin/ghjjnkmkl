@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#112921" name="theme-color"/><meta content="مساحتي الشخصية — المنصة الإسلامية." name="description"/>
+<title>مساحتي الشخصية | المنصة الإسلامية</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;family=Amiri:wght@400;700&amp;family=Noto+Naskh+Arabic:wght@400;600;700&amp;display=swap">
+<link href="../assets/css/site.css" rel="stylesheet"/><link href="../assets/css/articles.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script><script src="../assets/js/tailwind-config.js"></script><link rel="stylesheet" href="../assets/css/design-system.css"><script>(function(){try{var d=localStorage.getItem("platform-theme")==="dark";document.documentElement.classList.toggle("dark",d);document.documentElement.classList.toggle("light",!d);}catch(e){}})();</script></head>
+<body class="min-h-screen flex flex-col w-full"><div id="site-header-root"></div><main class="flex-1 w-full"><div class="screen-view w-full page-account" id="screen-profile">
+<section class="inner-page-hero archive-hero shared-page-hero"><div class="archive-hero-inner shared-page-hero-inner"><span class="archive-kicker"><span class="ui-icon" data-icon="user-round"></span> مساحتي الشخصية</span><h1>رتّب رحلتك في مكان واحد</h1><p>تابع قراءتك وخطط الحفظ وملاحظاتك ومساهماتك، وتحكم في إعدادات حسابك وخصوصيتك.</p><div class="hero-quick-actions"><button onclick="showScreen('quran-wird')" type="button"><span class="ui-icon" data-icon="book-open"></span> الورد القرآني</button><button onclick="showScreen('my-library')" type="button"><span class="ui-icon" data-icon="bookmark"></span> مكتبتي</button><button onclick="showScreen('settings')" type="button"><span class="ui-icon" data-icon="settings"></span> الإعدادات</button></div></div></section>
+<section class="account-personal-plans max-w-6xl mx-auto px-5 py-6" id="account-personal-plans"><div class="feature-section-heading"><div><h2>خططي ومتابعتي</h2><p>مساحة خاصة بك لمتابعة الحفظ والعبادات والعادات بعد تسجيل الدخول.</p></div></div><div class="grid grid-cols-1 sm:grid-cols-2 gap-4"><button class="feature-panel text-right" onclick="navigateToPage('memorization')"><strong>حفظ القرآن الكريم</strong><p>خطة الحفظ والمراجعة والتقدم الشخصي.</p></button><button class="feature-panel text-right" onclick="navigateToPage('habits')"><strong>متابعة العبادات والعادات</strong><p>سجل الورد والعادات اليومية ومؤشرات الاستمرار.</p></button></div></section>
+<section class="account-quick-links max-w-6xl mx-auto px-5 pb-5"><div class="account-quick-grid">
+<button onclick="showScreen('quran-wird')"><span class="ui-icon" data-icon="book-open-check"></span><strong>الورد القرآني</strong><small>تنظيم وردك اليومي</small></button>
+<button onclick="showScreen('khatma')"><span class="ui-icon" data-icon="calendar-check"></span><strong>خطة الختمة</strong><small>خطة قراءة شخصية</small></button>
+<button onclick="showScreen('my-library')"><span class="ui-icon" data-icon="bookmark"></span><strong>مكتبتي الخاصة</strong><small>محفوظاتي وقوائم القراءة</small></button>
+<button onclick="showScreen('downloads')"><span class="ui-icon" data-icon="download"></span><strong>التنزيلات</strong><small>إدارة المواد المحفوظة</small></button>
+<button onclick="showScreen('notifications')"><span class="ui-icon" data-icon="bell"></span><strong>الإشعارات</strong><small>التنبيهات والتفضيلات</small></button>
+<button onclick="showScreen('submissions')"><span class="ui-icon" data-icon="file-check"></span><strong>مساهماتي</strong><small>متابعة مواد المراجعة</small></button>
+<button onclick="showScreen('family')"><span class="ui-icon" data-icon="users"></span><strong>العائلة والأطفال</strong><small>ملفات الأطفال وإعداداتها</small></button>
+<button onclick="showScreen('privacy')"><span class="ui-icon" data-icon="shield-check"></span><strong>الخصوصية والبيانات</strong><small>تصدير البيانات وحذف الحساب</small></button>
+<button onclick="showScreen('settings')"><span class="ui-icon" data-icon="settings"></span><strong>إعدادات الحساب</strong><small>المظهر واللغة والوصول وتنبيهات الصلاة</small></button>
+</div></section>
+<aside class="catalog-notice private account-demo-notice"><span class="ui-icon" data-icon="info"></span><p><strong>تنبيه المعاينة:</strong> الأرقام والكتب والمحفوظات وسجل التقدم المعروض هنا أمثلة توضيحية للتصميم، وليست بيانات حساب حقيقية أو محفوظة على خادم.</p></aside>
+<section class="profile-page-shell">
+<div class="profile-cover-v3">
+<div class="profile-cover-pattern"></div>
+<div class="profile-cover-actions"><span class="profile-private-chip"><span class="ui-icon" data-icon="lock"></span> مساحة شخصية خاصة</span><button class="profile-cover-edit"><span class="ui-icon" data-icon="camera"></span> تعديل الغلاف</button></div>
+</div>
+<div class="profile-identity-card calm-card">
+<div class="profile-identity-main">
+<div class="profile-avatar-v3">ع</div>
+<div class="profile-identity-copy"><h2>مساحتي الشخصية</h2><p>مساحة خاصة لتنظيم قراءاتي وملاحظاتي وأهدافي وإنجازاتي.</p><div class="profile-meta-line"><span><span class="ui-icon" data-icon="calendar-days"></span> عضو منذ رمضان ١٤٤٥ هـ</span><span><span class="ui-icon" data-icon="shield-check"></span> لا يراها الأصدقاء</span></div></div>
+</div>
+<div class="profile-identity-actions"><button class="profile-edit-button"><span class="ui-icon" data-icon="pencil"></span> تعديل المساحة</button><button class="profile-settings-button"><span class="ui-icon" data-icon="settings"></span></button><button class="profile-settings-button account-preview-signout" onclick="signOutAccountPreview()" title="تسجيل الخروج" type="button"><span class="ui-icon" data-icon="log-out"></span></button></div>
+</div>
+<div class="profile-stats-grid">
+<div class="profile-stat"><span class="ui-icon" data-icon="book-check"></span><strong>١٨</strong><small>كتاب قرأته</small></div>
+<div class="profile-stat"><span class="ui-icon" data-icon="bookmark"></span><strong>٢٤</strong><small>عنصر محفوظ</small></div>
+<div class="profile-stat"><span class="ui-icon" data-icon="medal"></span><strong>١٢</strong><small>وسام مكتسب</small></div>
+<div class="profile-stat"><span class="ui-icon" data-icon="calendar-check"></span><strong>٢٨</strong><small>يوماً من الاستمرار</small></div>
+</div>
+<nav aria-label="أقسام المساحة الشخصية" class="profile-tabs-v3 calm-card">
+<button class="profile-tab-v3 active" onclick="scrollProfileTo('profile-overview',this)">نظرة عامة</button>
+<button class="profile-tab-v3" onclick="showScreen('feed')"><span class="ui-icon" data-icon="newspaper"></span> الفيد المعرفي</button>
+<button class="profile-tab-v3" onclick="scrollProfileTo('profile-tools',this)">أدواتي</button>
+<button class="profile-tab-v3" onclick="scrollProfileTo('profile-library',this)">مكتبتي</button>
+<button class="profile-tab-v3" onclick="scrollProfileTo('profile-saved',this)">المحفوظات</button>
+<button class="profile-tab-v3" onclick="scrollProfileTo('profile-wishlist',this)">أريد قراءتها</button>
+<button class="profile-tab-v3" onclick="scrollProfileTo('profile-achievements',this)">الأوسمة</button>
+<button class="profile-tab-v3" onclick="scrollProfileTo('profile-notes',this)">ملاحظاتي</button>
+</nav>
+<div class="profile-body-grid" id="profile-overview">
+<aside class="profile-side-column">
+<section class="calm-card profile-panel" id="profile-tools">
+<div class="profile-panel-heading"><div><span class="section-kicker">اختصاراتك</span><h3>أدواتي</h3></div><span class="ui-icon muted-icon" data-icon="layout-grid"></span></div>
+<div class="profile-tool-list">
+<button onclick="showScreen('quran')"><span class="tool-icon"><span class="ui-icon" data-icon="book-open"></span></span><span>متابعة المصحف</span><span class="ui-icon tool-chevron" data-icon="chevron-left"></span></button>
+<button onclick="scrollProfileTo('profile-library')"><span class="tool-icon"><span class="ui-icon" data-icon="library"></span></span><span>مكتبتي</span><span class="ui-icon tool-chevron" data-icon="chevron-left"></span></button>
+<button onclick="scrollProfileTo('profile-saved')"><span class="tool-icon"><span class="ui-icon" data-icon="bookmark"></span></span><span>المحفوظات</span><span class="tool-count">٢٤</span></button>
+<button onclick="scrollProfileTo('profile-notes')"><span class="tool-icon"><span class="ui-icon" data-icon="notebook-pen"></span></span><span>ملاحظاتي وتدبراتي</span><span class="tool-count">١٨</span></button>
+<button onclick="scrollProfileTo('profile-wishlist')"><span class="tool-icon"><span class="ui-icon" data-icon="list-plus"></span></span><span>قائمة أريد قراءتها</span><span class="tool-count">٧</span></button>
+<button onclick="scrollProfileTo('profile-achievements')"><span class="tool-icon"><span class="ui-icon" data-icon="medal"></span></span><span>الأوسمة والإنجازات</span><span class="ui-icon tool-chevron" data-icon="chevron-left"></span></button>
+<button><span class="tool-icon"><span class="ui-icon" data-icon="headphones"></span></span><span>قوائم الاستماع</span><span class="tool-count">٥</span></button>
+</div>
+</section>
+<section class="calm-card profile-panel profile-privacy-panel">
+<span class="ui-icon" data-icon="lock"></span><div><strong>مساحتك لك وحدك</strong><p>الكتب التي تقرؤها، محفوظاتك، ملاحظاتك وإنجازاتك خاصة ولا تظهر في فيد المنصة.</p></div>
+</section>
+<section class="calm-card profile-panel">
+<div class="profile-panel-heading"><div><span class="section-kicker">هذا الأسبوع</span><h3>تقدمك</h3></div><strong class="progress-number">٧٦٪</strong></div>
+<div class="profile-progress-track"><i style="width:76%"></i></div>
+<div class="profile-mini-stats"><div><strong>١٢</strong><small>صفحة قرآن</small></div><div><strong>٥</strong><small>أيام قراءة</small></div></div>
+</section>
+</aside>
+<main class="profile-main-column">
+<section class="calm-card profile-composer">
+<div class="composer-top"><div class="composer-avatar">ع</div><div><strong>مساحتك الخاصة</strong><small>دوّن فكرة أو فائدة لتعود إليها لاحقاً</small></div><span class="profile-private-chip light"><span class="ui-icon" data-icon="lock"></span> خاص</span></div>
+<textarea id="profile-note-input" placeholder="ما الفائدة التي تريد الاحتفاظ بها اليوم؟" rows="2"></textarea>
+<div class="composer-bottom"><span><span class="ui-icon" data-icon="notebook-pen"></span> ملاحظة شخصية لا تظهر للآخرين</span><button onclick="saveProfileNote()">حفظ في ملاحظاتي</button></div>
+<p aria-live="polite" class="profile-feedback" id="profile-note-feedback"></p>
+</section>
+<section class="calm-card profile-panel" id="profile-library">
+<div class="profile-panel-heading"><div><span class="section-kicker">مكتبتك الشخصية</span><h3>تابع القراءة</h3><p>الكتب التي بدأت قراءتها ويمكنك إكمالها.</p></div><button class="subtle-link">عرض المكتبة كاملة <span class="ui-icon" data-icon="arrow-left"></span></button></div>
+<div class="profile-book-list">
+<article class="profile-book-row"><div class="profile-book-cover cover-green"><span class="ui-icon" data-icon="book-open"></span></div><div class="profile-book-info"><strong>رياض الصالحين</strong><small>الإمام النووي · آخر قراءة: باب الإخلاص</small><div class="profile-progress-track"><i style="width:68%"></i></div><span class="book-progress-caption">٦٨٪ مكتمل · متبقي ١٢ صفحة</span></div><button class="book-open-action">متابعة</button></article>
+<article class="profile-book-row"><div class="profile-book-cover cover-sand"><span class="ui-icon" data-icon="book-text"></span></div><div class="profile-book-info"><strong>تيسير الكريم الرحمن في تفسير كلام المنان</strong><small>عبد الرحمن السعدي · آخر قراءة: سورة مريم</small><div class="profile-progress-track"><i style="width:42%"></i></div><span class="book-progress-caption">٤٢٪ مكتمل</span></div><button class="book-open-action">متابعة</button></article>
+</div>
+</section>
+<section class="calm-card profile-panel" id="profile-read">
+<div class="profile-panel-heading"><div><span class="section-kicker">سجل القراءة</span><h3>كتب قرأتها</h3><p>سجل إنجازاتك القرائية وما أتممته.</p></div><span class="profile-total-pill">١٨ كتاباً</span></div>
+<div class="profile-shelf-grid">
+<article class="profile-shelf-book"><div class="shelf-cover cover-teal"><span class="ui-icon" data-icon="book-check"></span></div><strong>الأربعون النووية</strong><small>مكتمل · منذ أسبوعين</small></article>
+<article class="profile-shelf-book"><div class="shelf-cover cover-clay"><span class="ui-icon" data-icon="book-check"></span></div><strong>مختصر تفسير ابن كثير</strong><small>مكتمل · منذ شهرين</small></article>
+</div>
+</section>
+<section class="calm-card profile-panel" id="profile-wishlist">
+<div class="profile-panel-heading"><div><span class="section-kicker">خطتك القادمة</span><h3>كتب أريد قراءتها</h3><p>قائمة شخصية للكتب التي ترغب في قراءتها لاحقاً.</p></div><span class="profile-total-pill">٦ كتب</span></div>
+<div class="wishlist-list">
+<div><span class="wishlist-dot"></span><span><strong>مدارج السالكين</strong><small>التزكية والسلوك</small></span><button>ابدأ القراءة</button></div>
+<div><span class="wishlist-dot"></span><span><strong>جامع العلوم والحكم</strong><small>شرح الحديث</small></span><button>ابدأ القراءة</button></div>
+</div>
+</section>
+<section class="calm-card profile-panel" id="profile-saved">
+<div class="profile-panel-heading"><div><span class="section-kicker">للعودة إليها</span><h3>المحفوظات</h3><p>آيات وأحاديث ومواد وكتب احتفظت بها.</p></div><span class="profile-total-pill">٢٤ عنصراً</span></div>
+<div class="saved-items-list">
+<article><span class="saved-item-icon"><span class="ui-icon" data-icon="book-open"></span></span><div><strong>آية محفوظة · سورة الرعد</strong><small>﴿ ألا بذكر الله تطمئن القلوب ﴾</small></div><button aria-label="فتح المحفوظ"><span class="ui-icon" data-icon="arrow-up-left"></span></button></article>
+<article><span class="saved-item-icon"><span class="ui-icon" data-icon="scroll-text"></span></span><div><strong>حديث محفوظ · صحيح البخاري</strong><small>إنما الأعمال بالنيات</small></div><button aria-label="فتح المحفوظ"><span class="ui-icon" data-icon="arrow-up-left"></span></button></article>
+</div>
+</section>
+<section class="calm-card profile-panel" id="profile-notes">
+<div class="profile-panel-heading"><div><span class="section-kicker">دفتر خاص</span><h3>ملاحظاتي وتدبراتي</h3><p>كل ما تكتبه هنا محفوظ داخل مساحتك.</p></div><span class="profile-total-pill">١٨ ملاحظة</span></div>
+<div class="private-note-card"><span class="ui-icon" data-icon="notebook-pen"></span><div><strong>تدبر حول الصبر</strong><p>ملاحظة شخصية: جمع الآيات المتعلقة بالصبر واليقين والرجوع إليها في نهاية الأسبوع.</p><small>آخر تعديل · اليوم</small></div></div>
+</section>
+<section class="calm-card profile-panel" id="profile-achievements">
+<div class="profile-panel-heading"><div><span class="section-kicker">إنجازاتك</span><h3>الأوسمة التي حققتها</h3><p>شارات تعكس رحلتك في القراءة والتعلم والعبادة.</p></div><span class="profile-total-pill">١٢ وساماً</span></div>
+<div class="profile-achievement-grid">
+<div class="achievement-item"><span class="achievement-emblem gold-emblem"><span class="ui-icon" data-icon="book-check"></span></span><strong>الختمة الأولى</strong><small>إتمام ختمة كاملة</small></div>
+<div class="achievement-item"><span class="achievement-emblem green-emblem"><span class="ui-icon" data-icon="calendar-check"></span></span><strong>ورد مستمر</strong><small>٢٨ يوماً من الالتزام</small></div>
+<div class="achievement-item"><span class="achievement-emblem blue-emblem"><span class="ui-icon" data-icon="headphones"></span></span><strong>محب التلاوة</strong><small>إكمال ٢٠ ساعة استماع</small></div>
+<div class="achievement-item"><span class="achievement-emblem clay-emblem"><span class="ui-icon" data-icon="graduation-cap"></span></span><strong>طالب علم</strong><small>إكمال ٥ مسارات تعليمية</small></div>
+</div>
+</section>
+</main>
+<aside class="profile-side-column profile-right-column">
+<section class="calm-card profile-panel">
+<div class="profile-panel-heading"><div><span class="section-kicker">آخر نشاطك</span><h3>سجل مساحتك</h3></div><span class="ui-icon muted-icon" data-icon="activity"></span></div>
+<div class="private-timeline">
+<div><i></i><p><strong>أكملت قراءة</strong><span>باباً جديداً من رياض الصالحين</span><small>اليوم</small></p></div>
+<div><i></i><p><strong>حفظت مادة</strong><span>وقفة تدبر من سورة الرعد</span><small>أمس</small></p></div>
+<div><i></i><p><strong>أضفت إلى قائمة القراءة</strong><span>كتاب زاد المعاد</span><small>منذ ٣ أيام</small></p></div>
+</div>
+</section>
+<section class="calm-card profile-panel">
+<div class="profile-panel-heading"><div><span class="section-kicker">أهدافك</span><h3>خطط القراءة والحفظ</h3></div><span class="ui-icon muted-icon" data-icon="target"></span></div>
+<div class="goal-line"><div><strong>حفظ جزء عم</strong><b>٨٠٪</b></div><div class="profile-progress-track"><i style="width:80%"></i></div></div>
+<div class="goal-line"><div><strong>قراءة الأربعين النووية</strong><b>٣٥٪</b></div><div class="profile-progress-track"><i style="width:35%"></i></div></div>
+<button class="goal-manage-button">إدارة أهدافي</button>
+</section>
+<section class="profile-reminder-card"><span class="ui-icon" data-icon="lightbulb"></span><h3>خطوة صغيرة كل يوم</h3><p>حافظ على ورد يسير من القراءة، وسجّل الفوائد التي تريد الرجوع إليها.</p></section>
+</aside>
+</div>
+</section>
+</div></main><div id="account-modal-root"></div><div id="site-footer-root"></div><div id="mobile-nav-root"></div>
+<script src="../assets/js/components.js"></script><script src="../assets/js/store-cart.js"></script><script src="../assets/js/app.js"></script><script src="../assets/js/page-router.js"></script><script src="../assets/js/motion.js"></script><script src="../assets/js/design-system.js"></script></body></html>

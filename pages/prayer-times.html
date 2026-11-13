@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#112921" name="theme-color"/><meta content="مواقيت الصلاة — المنصة الإسلامية." name="description"/>
+<title>مواقيت الصلاة | المنصة الإسلامية</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;family=Amiri:wght@400;700&amp;family=Noto+Naskh+Arabic:wght@400;600;700&amp;display=swap">
+<link href="../assets/css/site.css" rel="stylesheet"/><link href="../assets/css/articles.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script><script src="../assets/js/tailwind-config.js"></script><link rel="stylesheet" href="../assets/css/design-system.css"><script>(function(){try{var d=localStorage.getItem("platform-theme")==="dark";document.documentElement.classList.toggle("dark",d);document.documentElement.classList.toggle("light",!d);}catch(e){}})();</script></head>
+<body class="min-h-screen flex flex-col w-full"><div id="site-header-root"></div><main class="flex-1 w-full"><div class="screen-view w-full page-prayer-times" id="screen-prayer">
+<section class="inner-page-hero text-white pt-8 pb-8 w-full px-5 sm:px-10 lg:px-16">
+<div class="w-full max-w-7xl mx-auto relative z-10">
+<button class="tool-back-link" onclick="showScreen('tools')"><span aria-hidden="true" class="ui-icon" data-icon="arrow-right"></span> العودة إلى الأدوات</button>
+<div class="tool-hero-icon"><span aria-hidden="true" class="ui-icon" data-icon="clock-3"></span></div>
+<h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2">مواقيت الصلاة</h1>
+<p class="text-sm text-[#d1e0d5] max-w-2xl leading-8">اضبط المدينة وطريقة الحساب لعرض جدول الصلوات والتنبيهات اليومية.</p>
+</div>
+</section>
+<section class="w-full px-5 sm:px-10 lg:px-16 mt-8 mb-20"><div class="max-w-7xl mx-auto grid grid-cols-1 xl:grid-cols-[1.55fr_.85fr] gap-5">
+<div class="calm-card rounded-2xl p-5 sm:p-7">
+<div class="flex items-center justify-between flex-wrap gap-3 mb-5"><div><span class="section-kicker">جدول اليوم</span><h3 class="text-xl font-bold text-[#294638] mt-1">مواقيت الصلوات</h3></div><span class="tool-demo-label">بانتظار ربط خدمة المواقيت</span></div>
+<div class="prayer-tool-grid">
+<div class="prayer-time-item"><span class="ui-icon" data-icon="sunrise"></span><span>الفجر</span><strong>--:--</strong></div>
+<div class="prayer-time-item"><span class="ui-icon" data-icon="sun"></span><span>الشروق</span><strong>--:--</strong></div>
+<div class="prayer-time-item"><span class="ui-icon" data-icon="sun"></span><span>الظهر</span><strong>--:--</strong></div>
+<div class="prayer-time-item"><span class="ui-icon" data-icon="sun"></span><span>العصر</span><strong>--:--</strong></div>
+<div class="prayer-time-item"><span class="ui-icon" data-icon="sunset"></span><span>المغرب</span><strong>--:--</strong></div>
+<div class="prayer-time-item"><span class="ui-icon" data-icon="moon"></span><span>العشاء</span><strong>--:--</strong></div>
+</div>
+<div class="tool-inline-notice mt-5"><span class="ui-icon" data-icon="info"></span><span>هذه معاينة للتصميم؛ لم يتم تحميل مواقيت فعلية في هذا النموذج.</span></div>
+</div>
+<aside class="calm-card rounded-2xl p-5 sm:p-6">
+<div class="flex items-center gap-3 mb-5"><span class="tool-card-icon small"><span class="ui-icon" data-icon="sliders-horizontal"></span></span><div><h3 class="text-sm font-bold text-[#294638]">إعدادات المواقيت</h3><p class="text-[11px] text-[#819087] mt-1">خصص الجدول حسب مدينتك</p></div></div>
+<label class="tool-field-label" for="prayer-city">المدينة</label><select class="tool-input" id="prayer-city"><option value="">اختر المدينة</option><option>القاهرة</option><option>الإسكندرية</option><option>الجيزة</option><option>المنصورة</option><option>أسيوط</option></select>
+<label class="tool-field-label mt-4" for="prayer-method">طريقة الحساب</label><select class="tool-input" id="prayer-method"><option>الهيئة المصرية العامة للمساحة</option><option>رابطة العالم الإسلامي</option><option>أم القرى</option><option>جامعة العلوم الإسلامية بكراتشي</option></select>
+<button class="tool-primary-button mt-5 w-full" onclick="showPrayerSettingsFeedback()" type="button">حفظ إعدادات المواقيت</button><button class="tool-secondary-button mt-3 w-full" onclick="openAdhanAccountSettings()" type="button">إعدادات الأذان في حسابي</button>
+<p aria-live="polite" class="tool-feedback" id="prayer-settings-feedback">تُحفظ الإعدادات عند ربط الحساب.</p>
+</aside>
+</div>
+<div class="max-w-7xl mx-auto mt-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+<div class="calm-card rounded-2xl p-5"><div class="flex items-center gap-3 mb-3"><span class="tool-card-icon small"><span class="ui-icon" data-icon="bell-ring"></span></span><div><h3 class="text-sm font-bold text-[#294638]">تنبيهات الصلاة</h3><p class="text-[10px] text-[#839087] mt-1">إعدادات التنبيه أصبحت جزءًا من حسابك الشخصي.</p></div></div><p class="text-xs leading-7 text-[#65766a]">سجّل الدخول لإدارة تنبيه كل صلاة، واختيار نوع الإشعار ووقت التذكير.</p><button class="tool-secondary-button mt-3 w-full" onclick="openAdhanAccountSettings()" type="button">إدارة التنبيهات من حسابي</button></div>
+<div class="calm-card rounded-2xl p-5"><div class="flex items-center gap-3 mb-3"><span class="tool-card-icon small"><span class="ui-icon" data-icon="book-open"></span></span><div><h3 class="text-sm font-bold text-[#294638]">السنن الرواتب</h3><p class="text-[10px] text-[#839087] mt-1">ملخص مساعد بجوار جدول الصلاة.</p></div></div><div class="grid grid-cols-2 gap-2 text-[10px] text-[#6f7f74]"><div class="rounded-lg bg-[#f7f9f5] p-3"><strong class="block text-[#47663c] mb-1">قبل الفجر</strong>ركعتان</div><div class="rounded-lg bg-[#f7f9f5] p-3"><strong class="block text-[#47663c] mb-1">الظهر</strong>أربع قبلها وركعتان بعدها</div><div class="rounded-lg bg-[#f7f9f5] p-3"><strong class="block text-[#47663c] mb-1">المغرب</strong>ركعتان بعدها</div><div class="rounded-lg bg-[#f7f9f5] p-3"><strong class="block text-[#47663c] mb-1">العشاء</strong>ركعتان بعدها</div></div><p class="text-[10px] text-[#88948b] mt-3 leading-6">هذا ملخص للمشهور من الرواتب المؤكدة، وتوجد تفصيلات وسنن أخرى في كتب الفقه والحديث.</p></div>
+</div></section>
+</div></main><div id="account-modal-root"></div><div id="site-footer-root"></div><div id="mobile-nav-root"></div>
+<script src="../assets/js/components.js"></script><script src="../assets/js/store-cart.js"></script><script src="../assets/js/app.js"></script><script src="../assets/js/page-router.js"></script><script src="../assets/js/motion.js"></script><script src="../assets/js/design-system.js"></script></body></html>

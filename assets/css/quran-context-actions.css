@@ -1,0 +1,35 @@
+/* V38 — no permanent verse-action bar; show a small contextual menu only on ayah selection. */
+#screen-quran .quran-layout-only-bar{justify-content:flex-end!important;min-height:0!important;margin:0 0 7px!important;padding:0!important;border:0!important;background:transparent!important;box-shadow:none!important;}
+#screen-quran .quran-layout-only-bar .quran-layout-switch{margin-inline-start:auto!important;}
+#screen-quran .quran-selected-verse-tools[hidden]{display:none!important;}
+#screen-quran .mushaf-page-frame{position:relative!important;}
+#screen-quran .quran-verse-action-popover:not([hidden]){
+  position:absolute!important;z-index:35!important;left:50%!important;transform:translateX(-50%)!important;
+  width:max-content!important;max-width:calc(100% - 26px)!important;margin:0!important;padding:5px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  border:1px solid #dce5d8!important;border-radius:13px!important;
+  background:rgba(255,255,255,.98)!important;color:#171a17!important;
+  box-shadow:0 10px 28px rgba(18,37,22,.16)!important;backdrop-filter:blur(12px)!important;
+  animation:quranActionIn .16s ease-out both!important;
+}
+#screen-quran .quran-verse-action-popover .quran-selected-actions{
+  display:flex!important;align-items:center!important;justify-content:center!important;gap:4px!important;flex-wrap:nowrap!important;
+}
+#screen-quran .quran-verse-action-popover .quran-selected-actions button{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:5px!important;
+  min-height:35px!important;padding:0 10px!important;border:0!important;border-radius:9px!important;
+  background:transparent!important;color:#202820!important;font-size:10px!important;font-weight:700!important;white-space:nowrap!important;
+  transition:background .15s ease,color .15s ease!important;
+}
+#screen-quran .quran-verse-action-popover .quran-selected-actions button:hover,
+#screen-quran .quran-verse-action-popover .quran-selected-actions button:focus-visible{background:#edf3e9!important;color:#244b31!important;outline:none!important;}
+#screen-quran .quran-verse-action-popover .quran-selected-actions button.is-bookmarked{background:#e6efdf!important;color:#244b31!important;}
+#screen-quran .quran-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important;}
+@keyframes quranActionIn{from{opacity:0;transform:translate(-50%,4px) scale(.98)}to{opacity:1;transform:translate(-50%,0) scale(1)}}
+@media(max-width:680px){
+ #screen-quran .quran-layout-only-bar{justify-content:center!important;}
+ #screen-quran .quran-verse-action-popover{max-width:calc(100% - 14px)!important;padding:4px!important;}
+ #screen-quran .quran-verse-action-popover .quran-selected-actions{gap:1px!important;}
+ #screen-quran .quran-verse-action-popover .quran-selected-actions button{min-height:33px!important;padding:0 6px!important;font-size:9px!important;gap:3px!important;}
+}
+@media(prefers-reduced-motion:reduce){#screen-quran .quran-verse-action-popover:not([hidden]){animation:none!important;}}

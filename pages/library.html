@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff"><meta name="description" content="المعرفة الإسلامية: الكتب والمقالات والمعاجم والقواميس وقصص الأنبياء.">
+<title>المعرفة الإسلامية | المنصة الإسلامية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;family=Amiri:wght@400;700&amp;family=Noto+Naskh+Arabic:wght@400;600;700&amp;display=swap">
+<link rel="stylesheet" href="../assets/css/site.css"><link rel="stylesheet" href="../assets/css/articles.css"><link rel="stylesheet" href="../assets/css/book-experience.css"><link rel="stylesheet" href="../assets/css/v32-experience.css">
+<script src="https://cdn.tailwindcss.com"></script><script src="../assets/js/tailwind-config.js"></script>
+<link rel="stylesheet" href="../assets/css/design-system.css"><script>(function(){try{var d=localStorage.getItem("platform-theme")==="dark";document.documentElement.classList.toggle("dark",d);document.documentElement.classList.toggle("light",!d);}catch(e){}})();</script></head>
+<body class="min-h-screen flex flex-col w-full"><div id="site-header-root"></div>
+<main class="flex-1 w-full"><div class="screen-view archive-screen page-library knowledge-hub-page" id="screen-library">
+<section class="inner-page-hero archive-hero knowledge-hub-hero"><div class="archive-hero-inner knowledge-hub-hero-inner">
+<div class="archive-kicker"><span class="ui-icon" data-icon="book-open-check"></span>المعرفة الإسلامية</div>
+<h1>اقرأ، واكتشف، وتوسّع في المعرفة</h1>
+<p>أربعة أبواب تجمع الكتب والمقالات والمعاجم وقصص الأنبياء في تجربة واحدة واضحة ومنظمة.</p>
+<div class="archive-search knowledge-hub-search"><span class="ui-icon" data-icon="search"></span><input aria-label="ابحث في المعرفة الإسلامية" oninput="filterArchiveCards(this)" placeholder="ابحث عن كتاب أو مقال أو كلمة أو قصة..." type="search"><button type="button" onclick="filterArchiveCards(this.previousElementSibling)">بحث</button></div>
+
+</div></section>
+<div class="archive-shell knowledge-hub-shell">
+<section class="knowledge-hub-intro"><div><span class="section-kicker">أبواب المعرفة</span><h2>اختر ما تريد استكشافه</h2><p>كل باب له فهرسه وأدواته وصفحاته الخاصة، ويمكنك الانتقال بينها دون تداخل في الأقسام.</p></div><div class="knowledge-hub-symbol"><img src="../assets/images/vectors/open-book.svg" alt="رسم فيكتور لكتاب مفتوح"></div></section>
+<div class="knowledge-hub-grid" id="knowledge-hub-grid">
+<a class="knowledge-destination-card books-destination" href="books.html" onclick="showScreen('books');return false;" data-search="الكتب والمكتبة الإسلامية كتب التفسير الحديث الفقه العقيدة السيرة علوم القرآن">
+<div class="knowledge-destination-art photo-books"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Islamic_books_shelf.jpg?width=1100" alt="رفوف كتب إسلامية" loading="lazy"><span class="knowledge-destination-icon"><span class="ui-icon" data-icon="library"></span></span></div>
+<div class="knowledge-destination-copy"><span class="knowledge-destination-kicker">01 · مكتبة القراءة</span><h3>الكتب</h3><p>تصفّح الكتب الإسلامية حسب المجال، وافتح صفحة كل كتاب، واحفظ ما تريد قراءته لاحقًا.</p><span class="knowledge-destination-link">تصفّح الكتب <span class="ui-icon" data-icon="arrow-left"></span></span></div></a>
+<a class="knowledge-destination-card articles-destination" href="articles.html" onclick="showScreen('articles');return false;" data-search="المقالات والبحوث مقالات معرفية موضوعات إسلامية دراسات ومداخل تعليمية">
+<div class="knowledge-destination-art art-articles"><img src="https://images.pexels.com/photos/261909/pexels-photo-261909.jpeg?auto=compress&cs=tinysrgb&w=1100" alt="دفتر وأوراق للقراءة والكتابة" loading="lazy"><span class="knowledge-destination-icon"><span class="ui-icon" data-icon="newspaper"></span></span></div>
+<div class="knowledge-destination-copy"><span class="knowledge-destination-kicker">02 · قراءة تحريرية</span><h3>المقالات</h3><p>مقالات وموضوعات منظمة تساعدك على فهم المسائل والانتقال إلى المراجع ذات الصلة.</p><span class="knowledge-destination-link">اقرأ المقالات <span class="ui-icon" data-icon="arrow-left"></span></span></div></a>
+<a class="knowledge-destination-card lexicon-destination" href="lexicon.html" onclick="showScreen('lexicon');return false;" data-search="المعاجم والقواميس اللغة العربية الجذور والمفردات والمعاني">
+<div class="knowledge-destination-art art-lexicon"><img src="../assets/images/vectors/open-book.svg" alt="رسم فيكتور لكتاب ومعجم" loading="lazy"><span class="knowledge-destination-icon"><span class="ui-icon" data-icon="book-text"></span></span></div>
+<div class="knowledge-destination-copy"><span class="knowledge-destination-kicker">03 · اللغة والمفردات</span><h3>المعاجم والقواميس</h3><p>ابحث عن الكلمات والجذور والمعاني، وانتقل إلى المداخل المعجمية المرتبطة بالقرآن واللغة.</p><span class="knowledge-destination-link">افتح المعاجم <span class="ui-icon" data-icon="arrow-left"></span></span></div></a>
+<a class="knowledge-destination-card prophets-destination" href="prophets.html" onclick="showScreen('prophets');return false;" data-search="قصص الأنبياء والرسل قصص القرآن الكريم مواضع الآيات والعبر">
+<div class="knowledge-destination-art art-prophets"><img src="../assets/images/vectors/quran-arch.svg" alt="رسم فيكتور لقوس إسلامي" loading="lazy"><span class="knowledge-destination-icon"><span class="ui-icon" data-icon="book-heart"></span></span></div>
+<div class="knowledge-destination-copy"><span class="knowledge-destination-kicker">04 · قصص القرآن</span><h3>قصص الأنبياء</h3><p>تعرّف على قصص الأنبياء كما وردت في القرآن، مع إحالات إلى السور والآيات والتفسير.</p><span class="knowledge-destination-link">اكتشف القصص <span class="ui-icon" data-icon="arrow-left"></span></span></div></a>
+</div>
+<section class="reading-later-strip knowledge-reading-later" id="my-reading-later"><div class="reading-later-heading"><div><span class="archive-result-count">مساحتك الشخصية</span><h2>قائمة القراءة لاحقًا</h2><p>الكتب التي تحفظها ستظهر هنا على هذا الجهاز. مزامنتها بين أجهزتك تحتاج إلى ربط حساب المستخدم.</p></div><span class="reading-later-mark"><span class="ui-icon" data-icon="bookmark-check"></span></span></div><div class="reading-later-grid" id="reading-later-shelf"><div class="reading-later-empty">لم تحفظ كتبًا بعد. افتح فهرس الكتب واستخدم «حفظ لوقت لاحق».</div></div></section>
+</div></div></main>
+<div id="account-modal-root"></div><div id="site-footer-root"></div><div id="mobile-nav-root"></div>
+<script src="../assets/js/components.js"></script><script src="../assets/js/store-cart.js"></script><script src="../assets/js/app.js"></script><script src="../assets/js/page-router.js"></script><script src="../assets/js/motion.js"></script><script src="../assets/js/book-experience.js"></script><script src="../assets/js/design-system.js"></script></body></html>

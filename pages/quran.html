@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#112921" name="theme-color"/><meta content="سُورَةُ مَرْيَمَ (مكية • ٩٨ آية • الجزء ١٦ • صفحة ٣٠٥) — المنصة الإسلامية." name="description"/>
+<title>المصحف الشريف | المنصة الإسلامية</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;family=Amiri:wght@400;700&amp;family=Noto+Naskh+Arabic:wght@400;600;700&amp;display=swap">
+<link href="../assets/css/site.css" rel="stylesheet"/><link href="../assets/css/articles.css" rel="stylesheet"/><link href="../assets/css/quran-reader-fix.css" rel="stylesheet"/><link href="../assets/css/quran-final-refinement.css" rel="stylesheet"/><link href="../assets/css/quran-context-actions.css" rel="stylesheet"/><link href="../assets/css/quran-v39-finishing.css" rel="stylesheet"/><link href="../assets/css/quran-v40-position-layout.css" rel="stylesheet"/><link href="../assets/css/quran-v41-detail-polish.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script><script src="../assets/js/tailwind-config.js"></script><link rel="stylesheet" href="../assets/css/design-system.css"><script>(function(){try{var d=localStorage.getItem("platform-theme")==="dark";document.documentElement.classList.toggle("dark",d);document.documentElement.classList.toggle("light",!d);}catch(e){}})();</script></head>
+<body class="min-h-screen flex flex-col w-full"><div id="site-header-root"></div><main class="flex-1 w-full"><div class="screen-view w-full page-quran" id="screen-quran">
+<!-- Quran entry banner: focused heading only. Search remains inside the surah index sidebar. -->
+<section class="inner-page-hero quran-page-hero w-full">
+  <div class="quran-hero-inner">
+    <div class="quran-hero-heading">
+      <div class="quran-hero-kicker"><span class="quran-kicker-dot"></span> قراءة هادئة • المصحف الشريف</div>
+      <h1 class="quran-hero-title">المصحف الشريف</h1>
+      <p class="quran-hero-description">افتح موضعك، اختر آية، واستعن بأدوات القراءة وقت الحاجة.</p>
+    </div>
+
+  </div>
+</section>
+<div class="quran-position-under-hero" aria-label="موضع القراءة وأدوات التنقل">
+<div aria-label="أدوات جلسة القراءة" class="quran-session-strip">
+<div class="quran-session-progress">
+<div class="quran-session-heading"><span>موضع المصحف</span><strong id="quran-session-label">صفحة ٣٠٥ من ٦٠٤</strong></div>
+<div class="quran-progress-track"><span id="quran-progress-fill" style="width:50.5%"></span></div>
+<small>مؤشر لموضع الصفحة داخل المصحف، وليس سجلًا للختمة أو إنجازًا شخصيًا.</small>
+</div>
+<div class="quran-page-navigation" aria-label="موضع الصفحة في المعاينة">
+<button class="quran-utility-button" id="quran-prev-page" title="الصفحة السابقة في معاينة الترقيم" type="button">السابق</button>
+<label for="quran-page-input">الصفحة</label>
+<input id="quran-page-input" inputmode="numeric" max="604" min="1" type="number" value="305"/>
+<button class="quran-utility-button is-primary" id="quran-go-page" type="button">انتقال</button>
+<button class="quran-utility-button" id="quran-next-page" title="الصفحة التالية في معاينة الترقيم" type="button">التالي</button>
+<small class="quran-page-navigation-note" id="quran-page-navigation-note">الترقيم ظاهر للمعاينة؛ نصوص الصفحات الأخرى لم تُربط بعد.</small>
+</div>
+<div class="quran-session-layout" aria-label="طريقة عرض المصحف">
+<div class="quran-layout-switch" role="group" aria-label="طريقة عرض المصحف">
+<button aria-pressed="true" class="quran-layout-button is-active" id="layout-btn-single" onclick="setQuranLayout('single')" type="button"><span class="ui-icon" data-icon="book-open" aria-hidden="true"></span><span>المصحف فقط</span></button>
+<button aria-pressed="false" class="quran-layout-button" id="layout-btn-split" onclick="setQuranLayout('split')" type="button"><span class="ui-icon" data-icon="columns-2" aria-hidden="true"></span><span>المصحف والتفسير</span></button>
+</div>
+</div>
+<div class="quran-session-actions">
+<button class="quran-utility-button" id="quran-focus-btn" type="button">وضع التركيز</button>
+<button class="quran-utility-button" id="quran-open-notes" type="button">ملاحظاتي</button>
+<button class="quran-utility-button is-primary" id="quran-save-position" aria-pressed="false" type="button"><span class="ui-icon" data-icon="bookmark-check"></span> حفظ الموضع</button>
+</div>
+</div>
+</div>
+
+<!-- ================= MAIN WORKSPACE: FULL-WIDTH READING AREA ================= -->
+<div class="w-full px-2 sm:px-3 lg:px-3 mt-3 mb-12">
+<div class="quran-workspace quran-fullwidth-workspace" id="quran-workspace">
+<button aria-label="إغلاق لوحة المصحف" class="quran-drawer-backdrop" hidden id="quran-drawer-backdrop" onclick="closeQuranSidebars()" type="button"></button>
+<!-- Quran index drawer: opened on demand; does not consume Mushaf width. -->
+<aside class="quran-sidebar is-collapsed sidebar-transition calm-card rounded-2xl bg-white border border-[#132e25]/10" id="quran-right-sidebar">
+<div class="quran-rail-stack" aria-label="اختصارات فهرس المصحف">
+<button id="btn-toggle-right" aria-label="فتح فهرس السور" aria-expanded="false" aria-controls="quran-right-sidebar-content" class="sidebar-rail-toggle" data-rail="index" onclick="toggleRightSidebar()" title="فهرس السور" type="button"><span class="rail-icon"><span aria-hidden="true" class="ui-icon" data-icon="list"></span></span><span class="rail-label">فهرس السور</span><span class="rail-chevron" aria-hidden="true">‹</span></button>
+<button class="quran-rail-action" onclick="openQuranBookmarks()" title="الآيات المحفوظة" aria-label="الآيات المحفوظة" type="button"><span class="ui-icon" data-icon="bookmark" aria-hidden="true"></span></button>
+<button class="quran-rail-action" onclick="openQuranIndexSections()" title="الأجزاء والسور" aria-label="الأجزاء والسور" type="button"><span class="ui-icon" data-icon="book-open-check" aria-hidden="true"></span></button>
+</div>
+<div class="sidebar-content" id="quran-right-sidebar-content">
+<!-- Sidebar Header with Close Button -->
+<div class="flex items-center justify-between pb-3 border-b border-[#132e25]/8">
+<div class="flex items-center gap-2 font-bold text-xs text-[#132e25]">
+<svg class="w-4 h-4 text-[#c9f45b]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>فهرس السور والأجزاء</span>
+</div>
+<button aria-label="إغلاق الفهرس" class="w-7 h-7 rounded-lg bg-[#f0ede4] hover:bg-[#e4decb] text-[#132e25] flex items-center justify-center text-xs font-bold" onclick="toggleRightSidebar()" title="إغلاق الفهرس">
+<span aria-hidden="true" class="ui-icon" data-icon="x"></span>
+</button>
+</div>
+<!-- Search inside Surah Index -->
+<div class="relative">
+<input class="w-full pr-8 pl-3 py-2 text-xs rounded-xl bg-[#faf8f2] border border-[#132e25]/10 text-[#132e25] placeholder-[#7d8f85] focus:outline-none" placeholder="ابحث عن اسم السورة أو رقمها..." type="text"/>
+<svg class="w-4 h-4 text-[#7d8f85] absolute right-2.5 top-2.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<!-- Index Tabs (السور / الأجزاء / المحفوظات) -->
+<div class="flex items-center gap-1 bg-[#f0ede4] p-1 rounded-xl text-[11px] font-semibold text-[#132e25]">
+<button aria-pressed="true" class="flex-1 py-1 rounded-lg bg-white shadow-sm font-bold quran-index-tab-active" data-quran-index-tab="surahs" type="button">السور (١١٤)</button>
+<button aria-pressed="false" class="flex-1 py-1 rounded-lg text-[#63756d] hover:text-[#132e25]" data-quran-index-tab="juz" type="button">الأجزاء (٣٠)</button>
+<button aria-pressed="false" class="flex-1 py-1 rounded-lg text-[#63756d] hover:text-[#132e25]" data-quran-index-tab="saved" type="button">محفوظاتي</button>
+</div>
+<!-- Surah Items Scroll List -->
+<div class="quran-surah-list" id="quran-index-items">
+<button class="quran-surah-row" data-surah-number="1" data-surah-name="الفاتحة" data-ayah-count="7" type="button" >
+  <span class="quran-surah-number">01</span>
+  <span class="quran-surah-row-copy"><strong>الفاتحة</strong><small>7 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="2" data-surah-name="البقرة" data-ayah-count="286" type="button" >
+  <span class="quran-surah-number">02</span>
+  <span class="quran-surah-row-copy"><strong>البقرة</strong><small>286 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="3" data-surah-name="آل عمران" data-ayah-count="200" type="button" >
+  <span class="quran-surah-number">03</span>
+  <span class="quran-surah-row-copy"><strong>آل عمران</strong><small>200 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="4" data-surah-name="النساء" data-ayah-count="176" type="button" >
+  <span class="quran-surah-number">04</span>
+  <span class="quran-surah-row-copy"><strong>النساء</strong><small>176 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="5" data-surah-name="المائدة" data-ayah-count="120" type="button" >
+  <span class="quran-surah-number">05</span>
+  <span class="quran-surah-row-copy"><strong>المائدة</strong><small>120 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="6" data-surah-name="الأنعام" data-ayah-count="165" type="button" >
+  <span class="quran-surah-number">06</span>
+  <span class="quran-surah-row-copy"><strong>الأنعام</strong><small>165 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="7" data-surah-name="الأعراف" data-ayah-count="206" type="button" >
+  <span class="quran-surah-number">07</span>
+  <span class="quran-surah-row-copy"><strong>الأعراف</strong><small>206 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="8" data-surah-name="الأنفال" data-ayah-count="75" type="button" >
+  <span class="quran-surah-number">08</span>
+  <span class="quran-surah-row-copy"><strong>الأنفال</strong><small>75 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="9" data-surah-name="التوبة" data-ayah-count="129" type="button" >
+  <span class="quran-surah-number">09</span>
+  <span class="quran-surah-row-copy"><strong>التوبة</strong><small>129 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="10" data-surah-name="يونس" data-ayah-count="109" type="button" >
+  <span class="quran-surah-number">10</span>
+  <span class="quran-surah-row-copy"><strong>يونس</strong><small>109 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="11" data-surah-name="هود" data-ayah-count="123" type="button" >
+  <span class="quran-surah-number">11</span>
+  <span class="quran-surah-row-copy"><strong>هود</strong><small>123 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="12" data-surah-name="يوسف" data-ayah-count="111" type="button" >
+  <span class="quran-surah-number">12</span>
+  <span class="quran-surah-row-copy"><strong>يوسف</strong><small>111 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="13" data-surah-name="الرعد" data-ayah-count="43" type="button" >
+  <span class="quran-surah-number">13</span>
+  <span class="quran-surah-row-copy"><strong>الرعد</strong><small>43 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="14" data-surah-name="إبراهيم" data-ayah-count="52" type="button" >
+  <span class="quran-surah-number">14</span>
+  <span class="quran-surah-row-copy"><strong>إبراهيم</strong><small>52 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="15" data-surah-name="الحجر" data-ayah-count="99" type="button" >
+  <span class="quran-surah-number">15</span>
+  <span class="quran-surah-row-copy"><strong>الحجر</strong><small>99 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="16" data-surah-name="النحل" data-ayah-count="128" type="button" >
+  <span class="quran-surah-number">16</span>
+  <span class="quran-surah-row-copy"><strong>النحل</strong><small>128 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="17" data-surah-name="الإسراء" data-ayah-count="111" type="button" >
+  <span class="quran-surah-number">17</span>
+  <span class="quran-surah-row-copy"><strong>الإسراء</strong><small>111 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="18" data-surah-name="الكهف" data-ayah-count="110" type="button" >
+  <span class="quran-surah-number">18</span>
+  <span class="quran-surah-row-copy"><strong>الكهف</strong><small>110 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row is-current" data-surah-number="19" data-surah-name="مريم" data-ayah-count="98" type="button" aria-current="page">
+  <span class="quran-surah-number">19</span>
+  <span class="quran-surah-row-copy"><strong>مريم</strong><small>98 آية</small></span>
+  <span class="quran-surah-row-action">مفتوحة</span>
+</button>
+<button class="quran-surah-row" data-surah-number="20" data-surah-name="طه" data-ayah-count="135" type="button" >
+  <span class="quran-surah-number">20</span>
+  <span class="quran-surah-row-copy"><strong>طه</strong><small>135 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="21" data-surah-name="الأنبياء" data-ayah-count="112" type="button" >
+  <span class="quran-surah-number">21</span>
+  <span class="quran-surah-row-copy"><strong>الأنبياء</strong><small>112 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="22" data-surah-name="الحج" data-ayah-count="78" type="button" >
+  <span class="quran-surah-number">22</span>
+  <span class="quran-surah-row-copy"><strong>الحج</strong><small>78 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="23" data-surah-name="المؤمنون" data-ayah-count="118" type="button" >
+  <span class="quran-surah-number">23</span>
+  <span class="quran-surah-row-copy"><strong>المؤمنون</strong><small>118 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="24" data-surah-name="النور" data-ayah-count="64" type="button" >
+  <span class="quran-surah-number">24</span>
+  <span class="quran-surah-row-copy"><strong>النور</strong><small>64 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="25" data-surah-name="الفرقان" data-ayah-count="77" type="button" >
+  <span class="quran-surah-number">25</span>
+  <span class="quran-surah-row-copy"><strong>الفرقان</strong><small>77 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="26" data-surah-name="الشعراء" data-ayah-count="227" type="button" >
+  <span class="quran-surah-number">26</span>
+  <span class="quran-surah-row-copy"><strong>الشعراء</strong><small>227 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="27" data-surah-name="النمل" data-ayah-count="93" type="button" >
+  <span class="quran-surah-number">27</span>
+  <span class="quran-surah-row-copy"><strong>النمل</strong><small>93 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="28" data-surah-name="القصص" data-ayah-count="88" type="button" >
+  <span class="quran-surah-number">28</span>
+  <span class="quran-surah-row-copy"><strong>القصص</strong><small>88 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="29" data-surah-name="العنكبوت" data-ayah-count="69" type="button" >
+  <span class="quran-surah-number">29</span>
+  <span class="quran-surah-row-copy"><strong>العنكبوت</strong><small>69 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="30" data-surah-name="الروم" data-ayah-count="60" type="button" >
+  <span class="quran-surah-number">30</span>
+  <span class="quran-surah-row-copy"><strong>الروم</strong><small>60 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="31" data-surah-name="لقمان" data-ayah-count="34" type="button" >
+  <span class="quran-surah-number">31</span>
+  <span class="quran-surah-row-copy"><strong>لقمان</strong><small>34 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="32" data-surah-name="السجدة" data-ayah-count="30" type="button" >
+  <span class="quran-surah-number">32</span>
+  <span class="quran-surah-row-copy"><strong>السجدة</strong><small>30 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="33" data-surah-name="الأحزاب" data-ayah-count="73" type="button" >
+  <span class="quran-surah-number">33</span>
+  <span class="quran-surah-row-copy"><strong>الأحزاب</strong><small>73 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="34" data-surah-name="سبأ" data-ayah-count="54" type="button" >
+  <span class="quran-surah-number">34</span>
+  <span class="quran-surah-row-copy"><strong>سبأ</strong><small>54 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="35" data-surah-name="فاطر" data-ayah-count="45" type="button" >
+  <span class="quran-surah-number">35</span>
+  <span class="quran-surah-row-copy"><strong>فاطر</strong><small>45 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="36" data-surah-name="يس" data-ayah-count="83" type="button" >
+  <span class="quran-surah-number">36</span>
+  <span class="quran-surah-row-copy"><strong>يس</strong><small>83 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="37" data-surah-name="الصافات" data-ayah-count="182" type="button" >
+  <span class="quran-surah-number">37</span>
+  <span class="quran-surah-row-copy"><strong>الصافات</strong><small>182 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="38" data-surah-name="ص" data-ayah-count="88" type="button" >
+  <span class="quran-surah-number">38</span>
+  <span class="quran-surah-row-copy"><strong>ص</strong><small>88 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="39" data-surah-name="الزمر" data-ayah-count="75" type="button" >
+  <span class="quran-surah-number">39</span>
+  <span class="quran-surah-row-copy"><strong>الزمر</strong><small>75 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="40" data-surah-name="غافر" data-ayah-count="85" type="button" >
+  <span class="quran-surah-number">40</span>
+  <span class="quran-surah-row-copy"><strong>غافر</strong><small>85 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="41" data-surah-name="فصلت" data-ayah-count="54" type="button" >
+  <span class="quran-surah-number">41</span>
+  <span class="quran-surah-row-copy"><strong>فصلت</strong><small>54 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="42" data-surah-name="الشورى" data-ayah-count="53" type="button" >
+  <span class="quran-surah-number">42</span>
+  <span class="quran-surah-row-copy"><strong>الشورى</strong><small>53 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="43" data-surah-name="الزخرف" data-ayah-count="89" type="button" >
+  <span class="quran-surah-number">43</span>
+  <span class="quran-surah-row-copy"><strong>الزخرف</strong><small>89 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="44" data-surah-name="الدخان" data-ayah-count="59" type="button" >
+  <span class="quran-surah-number">44</span>
+  <span class="quran-surah-row-copy"><strong>الدخان</strong><small>59 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="45" data-surah-name="الجاثية" data-ayah-count="37" type="button" >
+  <span class="quran-surah-number">45</span>
+  <span class="quran-surah-row-copy"><strong>الجاثية</strong><small>37 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="46" data-surah-name="الأحقاف" data-ayah-count="35" type="button" >
+  <span class="quran-surah-number">46</span>
+  <span class="quran-surah-row-copy"><strong>الأحقاف</strong><small>35 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="47" data-surah-name="محمد" data-ayah-count="38" type="button" >
+  <span class="quran-surah-number">47</span>
+  <span class="quran-surah-row-copy"><strong>محمد</strong><small>38 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="48" data-surah-name="الفتح" data-ayah-count="29" type="button" >
+  <span class="quran-surah-number">48</span>
+  <span class="quran-surah-row-copy"><strong>الفتح</strong><small>29 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="49" data-surah-name="الحجرات" data-ayah-count="18" type="button" >
+  <span class="quran-surah-number">49</span>
+  <span class="quran-surah-row-copy"><strong>الحجرات</strong><small>18 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="50" data-surah-name="ق" data-ayah-count="45" type="button" >
+  <span class="quran-surah-number">50</span>
+  <span class="quran-surah-row-copy"><strong>ق</strong><small>45 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="51" data-surah-name="الذاريات" data-ayah-count="60" type="button" >
+  <span class="quran-surah-number">51</span>
+  <span class="quran-surah-row-copy"><strong>الذاريات</strong><small>60 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="52" data-surah-name="الطور" data-ayah-count="49" type="button" >
+  <span class="quran-surah-number">52</span>
+  <span class="quran-surah-row-copy"><strong>الطور</strong><small>49 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="53" data-surah-name="النجم" data-ayah-count="62" type="button" >
+  <span class="quran-surah-number">53</span>
+  <span class="quran-surah-row-copy"><strong>النجم</strong><small>62 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="54" data-surah-name="القمر" data-ayah-count="55" type="button" >
+  <span class="quran-surah-number">54</span>
+  <span class="quran-surah-row-copy"><strong>القمر</strong><small>55 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="55" data-surah-name="الرحمن" data-ayah-count="78" type="button" >
+  <span class="quran-surah-number">55</span>
+  <span class="quran-surah-row-copy"><strong>الرحمن</strong><small>78 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="56" data-surah-name="الواقعة" data-ayah-count="96" type="button" >
+  <span class="quran-surah-number">56</span>
+  <span class="quran-surah-row-copy"><strong>الواقعة</strong><small>96 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="57" data-surah-name="الحديد" data-ayah-count="29" type="button" >
+  <span class="quran-surah-number">57</span>
+  <span class="quran-surah-row-copy"><strong>الحديد</strong><small>29 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="58" data-surah-name="المجادلة" data-ayah-count="22" type="button" >
+  <span class="quran-surah-number">58</span>
+  <span class="quran-surah-row-copy"><strong>المجادلة</strong><small>22 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="59" data-surah-name="الحشر" data-ayah-count="24" type="button" >
+  <span class="quran-surah-number">59</span>
+  <span class="quran-surah-row-copy"><strong>الحشر</strong><small>24 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="60" data-surah-name="الممتحنة" data-ayah-count="13" type="button" >
+  <span class="quran-surah-number">60</span>
+  <span class="quran-surah-row-copy"><strong>الممتحنة</strong><small>13 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="61" data-surah-name="الصف" data-ayah-count="14" type="button" >
+  <span class="quran-surah-number">61</span>
+  <span class="quran-surah-row-copy"><strong>الصف</strong><small>14 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="62" data-surah-name="الجمعة" data-ayah-count="11" type="button" >
+  <span class="quran-surah-number">62</span>
+  <span class="quran-surah-row-copy"><strong>الجمعة</strong><small>11 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="63" data-surah-name="المنافقون" data-ayah-count="11" type="button" >
+  <span class="quran-surah-number">63</span>
+  <span class="quran-surah-row-copy"><strong>المنافقون</strong><small>11 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="64" data-surah-name="التغابن" data-ayah-count="18" type="button" >
+  <span class="quran-surah-number">64</span>
+  <span class="quran-surah-row-copy"><strong>التغابن</strong><small>18 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="65" data-surah-name="الطلاق" data-ayah-count="12" type="button" >
+  <span class="quran-surah-number">65</span>
+  <span class="quran-surah-row-copy"><strong>الطلاق</strong><small>12 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="66" data-surah-name="التحريم" data-ayah-count="12" type="button" >
+  <span class="quran-surah-number">66</span>
+  <span class="quran-surah-row-copy"><strong>التحريم</strong><small>12 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="67" data-surah-name="الملك" data-ayah-count="30" type="button" >
+  <span class="quran-surah-number">67</span>
+  <span class="quran-surah-row-copy"><strong>الملك</strong><small>30 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="68" data-surah-name="القلم" data-ayah-count="52" type="button" >
+  <span class="quran-surah-number">68</span>
+  <span class="quran-surah-row-copy"><strong>القلم</strong><small>52 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="69" data-surah-name="الحاقة" data-ayah-count="52" type="button" >
+  <span class="quran-surah-number">69</span>
+  <span class="quran-surah-row-copy"><strong>الحاقة</strong><small>52 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="70" data-surah-name="المعارج" data-ayah-count="44" type="button" >
+  <span class="quran-surah-number">70</span>
+  <span class="quran-surah-row-copy"><strong>المعارج</strong><small>44 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="71" data-surah-name="نوح" data-ayah-count="28" type="button" >
+  <span class="quran-surah-number">71</span>
+  <span class="quran-surah-row-copy"><strong>نوح</strong><small>28 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="72" data-surah-name="الجن" data-ayah-count="28" type="button" >
+  <span class="quran-surah-number">72</span>
+  <span class="quran-surah-row-copy"><strong>الجن</strong><small>28 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="73" data-surah-name="المزمل" data-ayah-count="20" type="button" >
+  <span class="quran-surah-number">73</span>
+  <span class="quran-surah-row-copy"><strong>المزمل</strong><small>20 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="74" data-surah-name="المدثر" data-ayah-count="56" type="button" >
+  <span class="quran-surah-number">74</span>
+  <span class="quran-surah-row-copy"><strong>المدثر</strong><small>56 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="75" data-surah-name="القيامة" data-ayah-count="40" type="button" >
+  <span class="quran-surah-number">75</span>
+  <span class="quran-surah-row-copy"><strong>القيامة</strong><small>40 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="76" data-surah-name="الإنسان" data-ayah-count="31" type="button" >
+  <span class="quran-surah-number">76</span>
+  <span class="quran-surah-row-copy"><strong>الإنسان</strong><small>31 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="77" data-surah-name="المرسلات" data-ayah-count="50" type="button" >
+  <span class="quran-surah-number">77</span>
+  <span class="quran-surah-row-copy"><strong>المرسلات</strong><small>50 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="78" data-surah-name="النبأ" data-ayah-count="40" type="button" >
+  <span class="quran-surah-number">78</span>
+  <span class="quran-surah-row-copy"><strong>النبأ</strong><small>40 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="79" data-surah-name="النازعات" data-ayah-count="46" type="button" >
+  <span class="quran-surah-number">79</span>
+  <span class="quran-surah-row-copy"><strong>النازعات</strong><small>46 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="80" data-surah-name="عبس" data-ayah-count="42" type="button" >
+  <span class="quran-surah-number">80</span>
+  <span class="quran-surah-row-copy"><strong>عبس</strong><small>42 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="81" data-surah-name="التكوير" data-ayah-count="29" type="button" >
+  <span class="quran-surah-number">81</span>
+  <span class="quran-surah-row-copy"><strong>التكوير</strong><small>29 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="82" data-surah-name="الانفطار" data-ayah-count="19" type="button" >
+  <span class="quran-surah-number">82</span>
+  <span class="quran-surah-row-copy"><strong>الانفطار</strong><small>19 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="83" data-surah-name="المطففين" data-ayah-count="36" type="button" >
+  <span class="quran-surah-number">83</span>
+  <span class="quran-surah-row-copy"><strong>المطففين</strong><small>36 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="84" data-surah-name="الانشقاق" data-ayah-count="25" type="button" >
+  <span class="quran-surah-number">84</span>
+  <span class="quran-surah-row-copy"><strong>الانشقاق</strong><small>25 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="85" data-surah-name="البروج" data-ayah-count="22" type="button" >
+  <span class="quran-surah-number">85</span>
+  <span class="quran-surah-row-copy"><strong>البروج</strong><small>22 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="86" data-surah-name="الطارق" data-ayah-count="17" type="button" >
+  <span class="quran-surah-number">86</span>
+  <span class="quran-surah-row-copy"><strong>الطارق</strong><small>17 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="87" data-surah-name="الأعلى" data-ayah-count="19" type="button" >
+  <span class="quran-surah-number">87</span>
+  <span class="quran-surah-row-copy"><strong>الأعلى</strong><small>19 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="88" data-surah-name="الغاشية" data-ayah-count="26" type="button" >
+  <span class="quran-surah-number">88</span>
+  <span class="quran-surah-row-copy"><strong>الغاشية</strong><small>26 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="89" data-surah-name="الفجر" data-ayah-count="30" type="button" >
+  <span class="quran-surah-number">89</span>
+  <span class="quran-surah-row-copy"><strong>الفجر</strong><small>30 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="90" data-surah-name="البلد" data-ayah-count="20" type="button" >
+  <span class="quran-surah-number">90</span>
+  <span class="quran-surah-row-copy"><strong>البلد</strong><small>20 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="91" data-surah-name="الشمس" data-ayah-count="15" type="button" >
+  <span class="quran-surah-number">91</span>
+  <span class="quran-surah-row-copy"><strong>الشمس</strong><small>15 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="92" data-surah-name="الليل" data-ayah-count="21" type="button" >
+  <span class="quran-surah-number">92</span>
+  <span class="quran-surah-row-copy"><strong>الليل</strong><small>21 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="93" data-surah-name="الضحى" data-ayah-count="11" type="button" >
+  <span class="quran-surah-number">93</span>
+  <span class="quran-surah-row-copy"><strong>الضحى</strong><small>11 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="94" data-surah-name="الشرح" data-ayah-count="8" type="button" >
+  <span class="quran-surah-number">94</span>
+  <span class="quran-surah-row-copy"><strong>الشرح</strong><small>8 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="95" data-surah-name="التين" data-ayah-count="8" type="button" >
+  <span class="quran-surah-number">95</span>
+  <span class="quran-surah-row-copy"><strong>التين</strong><small>8 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="96" data-surah-name="العلق" data-ayah-count="19" type="button" >
+  <span class="quran-surah-number">96</span>
+  <span class="quran-surah-row-copy"><strong>العلق</strong><small>19 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="97" data-surah-name="القدر" data-ayah-count="5" type="button" >
+  <span class="quran-surah-number">97</span>
+  <span class="quran-surah-row-copy"><strong>القدر</strong><small>5 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="98" data-surah-name="البينة" data-ayah-count="8" type="button" >
+  <span class="quran-surah-number">98</span>
+  <span class="quran-surah-row-copy"><strong>البينة</strong><small>8 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="99" data-surah-name="الزلزلة" data-ayah-count="8" type="button" >
+  <span class="quran-surah-number">99</span>
+  <span class="quran-surah-row-copy"><strong>الزلزلة</strong><small>8 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="100" data-surah-name="العاديات" data-ayah-count="11" type="button" >
+  <span class="quran-surah-number">100</span>
+  <span class="quran-surah-row-copy"><strong>العاديات</strong><small>11 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="101" data-surah-name="القارعة" data-ayah-count="11" type="button" >
+  <span class="quran-surah-number">101</span>
+  <span class="quran-surah-row-copy"><strong>القارعة</strong><small>11 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="102" data-surah-name="التكاثر" data-ayah-count="8" type="button" >
+  <span class="quran-surah-number">102</span>
+  <span class="quran-surah-row-copy"><strong>التكاثر</strong><small>8 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="103" data-surah-name="العصر" data-ayah-count="3" type="button" >
+  <span class="quran-surah-number">103</span>
+  <span class="quran-surah-row-copy"><strong>العصر</strong><small>3 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="104" data-surah-name="الهمزة" data-ayah-count="9" type="button" >
+  <span class="quran-surah-number">104</span>
+  <span class="quran-surah-row-copy"><strong>الهمزة</strong><small>9 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="105" data-surah-name="الفيل" data-ayah-count="5" type="button" >
+  <span class="quran-surah-number">105</span>
+  <span class="quran-surah-row-copy"><strong>الفيل</strong><small>5 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="106" data-surah-name="قريش" data-ayah-count="4" type="button" >
+  <span class="quran-surah-number">106</span>
+  <span class="quran-surah-row-copy"><strong>قريش</strong><small>4 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="107" data-surah-name="الماعون" data-ayah-count="7" type="button" >
+  <span class="quran-surah-number">107</span>
+  <span class="quran-surah-row-copy"><strong>الماعون</strong><small>7 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="108" data-surah-name="الكوثر" data-ayah-count="3" type="button" >
+  <span class="quran-surah-number">108</span>
+  <span class="quran-surah-row-copy"><strong>الكوثر</strong><small>3 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="109" data-surah-name="الكافرون" data-ayah-count="6" type="button" >
+  <span class="quran-surah-number">109</span>
+  <span class="quran-surah-row-copy"><strong>الكافرون</strong><small>6 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="110" data-surah-name="النصر" data-ayah-count="3" type="button" >
+  <span class="quran-surah-number">110</span>
+  <span class="quran-surah-row-copy"><strong>النصر</strong><small>3 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="111" data-surah-name="المسد" data-ayah-count="5" type="button" >
+  <span class="quran-surah-number">111</span>
+  <span class="quran-surah-row-copy"><strong>المسد</strong><small>5 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="112" data-surah-name="الإخلاص" data-ayah-count="4" type="button" >
+  <span class="quran-surah-number">112</span>
+  <span class="quran-surah-row-copy"><strong>الإخلاص</strong><small>4 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="113" data-surah-name="الفلق" data-ayah-count="5" type="button" >
+  <span class="quran-surah-number">113</span>
+  <span class="quran-surah-row-copy"><strong>الفلق</strong><small>5 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+<button class="quran-surah-row" data-surah-number="114" data-surah-name="الناس" data-ayah-count="6" type="button" >
+  <span class="quran-surah-number">114</span>
+  <span class="quran-surah-row-copy"><strong>الناس</strong><small>6 آية</small></span>
+  <span class="quran-surah-row-action">عرض</span>
+</button>
+</div>
+<!-- Bottom Saved Position Tag -->
+<div class="pt-3 border-t border-[#132e25]/8 text-[11px] text-[#71857b] flex items-center justify-between">
+<span>موضع القراءة المحفوظ:</span>
+<span class="quran-last-position" id="quran-last-position">لم يُحفظ بعد</span>
+</div>
+</div>
+</aside>
+<!-- Full-width Mushaf / optional Tafsir split view. -->
+<div class="min-w-0 space-y-5" id="quran-center-workspace">
+<!-- SPLIT SCREEN WRAPPER: The Mushaf is the primary reading surface; tafsir opens only on demand. -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start" id="quran-split-container">
+<!-- PANEL A: Reading controls, independent surah header, then the Quran paper. -->
+<div class="quran-reader-primary-column">
+<header class="mushaf-surah-header mushaf-surah-header-detached theme-warm" id="mushaf-surah-header">
+<span class="mushaf-surah-kicker">السورة التاسعة عشرة</span>
+<h2 class="font-quran">سُورَةُ مَرْيَمَ</h2>
+<div class="mushaf-surah-details"><span>مَكِّيَّةٌ</span><i></i><span>٩٨ آية</span><i></i><span>الجزء السادس عشر</span></div>
+</header>
+<div class="calm-card rounded-3xl p-6 sm:p-8 bg-[#fdfcf8] relative mushaf-page-frame theme-warm">
+<!-- Marginal Top Header -->
+<div class="mushaf-page-meta"><span>الجزء السادس عشر</span><span>الحزب ٣١</span><span class="quran-page-label">صفحة ٣٠٥</span></div>
+<!-- Bismillah -->
+<div class="text-center my-4">
+<div class="font-quran text-xl sm:text-2xl text-[#112921] font-bold">
+                    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+                  </div>
+</div>
+<!-- Ayahs with Active Highlight -->
+<div class="font-quran text-xl sm:text-2xl text-[#112921] font-bold px-1 sm:px-3 ayah-text" dir="rtl" id="quran-ayah-list">
+<button aria-pressed="false" class="quran-ayah" data-ayah="1" data-verse="كهيعص" type="button"><span class="quran-ayah-text">كهيعص</span><span class="quran-ayah-number">١</span></button>
+<button aria-pressed="false" class="quran-ayah" data-ayah="2" data-verse="ذِكْرُ رَحْمَتِ رَبِّكَ عَبْدَهُ زَكَرِيَّا" type="button"><span class="quran-ayah-text">ذِكْرُ رَحْمَتِ رَبِّكَ عَبْدَهُ زَكَرِيَّا</span><span class="quran-ayah-number">٢</span></button>
+<button aria-pressed="false" class="quran-ayah" data-ayah="3" data-verse="إِذْ نَادَىٰ رَبَّهُ نِدَاءً خَفِيًّا" type="button"><span class="quran-ayah-text">إِذْ نَادَىٰ رَبَّهُ نِدَاءً خَفِيًّا</span><span class="quran-ayah-number">٣</span></button>
+<button aria-pressed="true" class="quran-ayah is-active" data-ayah="4" data-verse="قَالَ رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا وَلَمْ أَكُن بِدُعَائِكَ رَبِّ شَقِيًّا" type="button"><span class="quran-ayah-text">قَالَ رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا وَلَمْ أَكُن بِدُعَائِكَ رَبِّ شَقِيًّا</span><span class="quran-ayah-number">٤</span></button>
+<button aria-pressed="false" class="quran-ayah" data-ayah="5" data-verse="وَإِنِّي خِفْتُ الْمَوَالِيَ مِن وَرَائِي وَكَانَتِ امْرَأَتِي عَاقِرًا فَهَبْ لِي مِن لَّدُنكَ وَلِيًّا" type="button"><span class="quran-ayah-text">وَإِنِّي خِفْتُ الْمَوَالِيَ مِن وَرَائِي وَكَانَتِ امْرَأَتِي عَاقِرًا فَهَبْ لِي مِن لَّدُنكَ وَلِيًّا</span><span class="quran-ayah-number">٥</span></button>
+<button aria-pressed="false" class="quran-ayah" data-ayah="6" data-verse="يَرِثُنِي وَيَرِثُ مِنْ آلِ يَعْقُوبَ ۖ وَاجْعَلْهُ رَبِّ رَضِيًّا" type="button"><span class="quran-ayah-text">يَرِثُنِي وَيَرِثُ مِنْ آلِ يَعْقُوبَ ۖ وَاجْعَلْهُ رَبِّ رَضِيًّا</span><span class="quran-ayah-number">٦</span></button>
+<button aria-pressed="false" class="quran-ayah" data-ayah="7" data-verse="يَا زَكَرِيَّا إِنَّا نُبَشِّرُكَ بِغُلَامٍ اسْمُهُ يَحْيَىٰ لَمْ نَجْعَل لَّهُ مِن قَبْلُ سَمِيًّا" type="button"><span class="quran-ayah-text">يَا زَكَرِيَّا إِنَّا نُبَشِّرُكَ بِغُلَامٍ اسْمُهُ يَحْيَىٰ لَمْ نَجْعَل لَّهُ مِن قَبْلُ سَمِيًّا</span><span class="quran-ayah-number">٧</span></button>
+<button aria-pressed="false" class="quran-ayah" data-ayah="8" data-verse="قَالَ رَبِّ أَنَّىٰ يَكُونُ لِي غُلَامٌ وَكَانَتِ امْرَأَتِي عَاقِرًا وَقَدْ بَلَغْتُ مِنَ الْكِبَرِ عِتِيًّا" type="button"><span class="quran-ayah-text">قَالَ رَبِّ أَنَّىٰ يَكُونُ لِي غُلَامٌ وَكَانَتِ امْرَأَتِي عَاقِرًا وَقَدْ بَلَغْتُ مِنَ الْكِبَرِ عِتِيًّا</span><span class="quran-ayah-number">٨</span></button>
+</div>
+<!-- Contextual verse actions: appears only after the reader selects an ayah. -->
+<div class="quran-selected-verse-tools quran-verse-action-popover" id="quran-selected-verse-tools" hidden role="toolbar" aria-label="إجراءات الآية المحددة">
+<span id="quran-selected-reference" class="quran-visually-hidden">مريم · الآية ٤</span>
+<div class="quran-selected-actions">
+<button id="quran-selected-tafsir" type="button" title="فتح التفسير"><span class="ui-icon" data-icon="book-open-text" aria-hidden="true"></span><span>التفسير</span></button>
+<button id="quran-selected-bookmark" aria-pressed="false" type="button" title="حفظ الآية"><span class="ui-icon" data-icon="bookmark" aria-hidden="true"></span><span class="quran-action-label">حفظ الآية</span></button>
+<button id="quran-selected-note" type="button" title="إضافة ملاحظة"><span class="ui-icon" data-icon="notebook-pen" aria-hidden="true"></span><span>ملاحظة</span></button>
+<button id="quran-copy-btn" type="button" title="نسخ الآية"><span class="ui-icon" data-icon="copy" aria-hidden="true"></span><span>نسخ</span></button>
+<button id="quran-share-btn" type="button" title="مشاركة الآية"><span class="ui-icon" data-icon="share-2" aria-hidden="true"></span><span>مشاركة</span></button>
+</div>
+</div>
+<!-- Marginal Bottom Footer -->
+<div class="quran-page-footer mt-8 pt-3 flex items-center justify-between text-xs">
+<span class="text-[#718f3d] font-bold">۞ بداية الحزب ٣١</span>
+<span class="quran-page-label font-bold text-xs px-3 py-0.5 rounded-lg">صفحة ٣٠٥</span>
+<span class="text-[#245241] font-semibold">سورة مريم</span>
+</div>
+</div>
+</div>
+<!-- PANEL B: Companion Tafsir & Meaning Pane (Split Parallel Screen) -->
+<section class="quran-tafsir-panel" id="quran-tafsir-pane" aria-label="تفسير الآية المختارة" aria-hidden="true">
+  <header class="quran-tafsir-header">
+    <div class="quran-tafsir-title-block">
+      <span class="quran-tafsir-eyebrow"><span class="quran-tafsir-eyebrow-dot"></span> مساحة التفسير</span>
+      <h3>تفسير الآية</h3>
+      <p id="quran-tafsir-reference">سورة مريم • الآية ٤</p>
+    </div>
+    <div class="quran-tafsir-source-area">
+      <span class="quran-tafsir-source-label">مصادر التفسير</span>
+      <div class="quran-tafsir-source-switch border-b" role="group" aria-label="اختيار مصدر التفسير">
+        <button class="quran-tafsir-source active quran-index-tab-active" data-tafsir-source="moyassar" aria-pressed="true" type="button">التفسير الميسر</button>
+        <button class="quran-tafsir-source" data-tafsir-source="saadi" aria-pressed="false" type="button">السعدي</button>
+        <button class="quran-tafsir-source" data-tafsir-source="katheer" aria-pressed="false" type="button">ابن كثير</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="quran-tafsir-verse-card" aria-label="نص الآية المحددة">
+    <div class="quran-tafsir-card-label"><span class="ui-icon" data-icon="quote" aria-hidden="true"></span> الآية المحددة</div>
+    <blockquote class="quran-tafsir-verse-text" id="quran-tafsir-verse">﴿قَالَ رَبِّ إِنِّي وَهَنَ الْعَظْمُ مِنِّي وَاشْتَعَلَ الرَّأْسُ شَيْبًا وَلَمْ أَكُن بِدُعَائِكَ رَبِّ شَقِيًّا﴾</blockquote>
+  </section>
+
+  <div class="quran-tafsir-coverage" id="quran-tafsir-coverage" role="note">
+    هذا شرح توضيحي تجريبي للآية ٤. النصوص الكاملة للتفاسير المعتمدة تحتاج إلى ربط مصادرها قبل النشر.
+  </div>
+
+  <div class="quran-tafsir-unavailable" id="quran-tafsir-empty" hidden>
+    <span class="ui-icon" data-icon="book-open-check" aria-hidden="true"></span>
+    <div><strong>لا يتوفر شرح لهذه الآية في المعاينة الحالية</strong><p>نص الآية محدد بالأعلى، وسيظهر التفسير هنا بعد ربط النص المعتمد للمصدر المختار.</p></div>
+  </div>
+
+  <div class="quran-tafsir-editorial" id="quran-tafsir-explanation">
+    <section class="quran-tafsir-section">
+      <div class="quran-tafsir-section-heading"><span class="quran-tafsir-section-index">١</span><h4>بيان المعنى الإجمالي</h4></div>
+      <p class="quran-tafsir-body" id="quran-tafsir-body">قال زكريا عليه السلام متضرعًا خاشعًا لربه في دعائه الخفي: يا رب، إني كبرت سني، وضعف عظمي الذي هو عماد الجسد، وانتشر الشيب في رأسي انتشار النار في الحطب، ولم أعهد منك إلا إجابة الدعاء وسعة الفضل، فلم أكن خائبًا ولا محرومًا في أي دعاء سألتك إياه فيما مضى.</p>
+    </section>
+
+    <aside class="quran-tafsir-reflection">
+      <div class="quran-tafsir-reflection-icon"><span class="ui-icon" data-icon="lightbulb" aria-hidden="true"></span></div>
+      <div><strong>فائدة تدبرية</strong><p>التوسل إلى الله بضعف الحال والافتقار التام من أعظم أسباب إجابة الدعاء وقبول الرجاء.</p></div>
+    </aside>
+
+    <section class="quran-tafsir-section quran-tafsir-vocabulary-section">
+      <div class="quran-tafsir-section-heading"><span class="quran-tafsir-section-index">٢</span><h4>غريب الكلمات</h4></div>
+      <div class="quran-tafsir-vocabulary-grid">
+        <article class="quran-tafsir-word-card"><strong>وَهَنَ</strong><span>ضعف ورقَّ.</span></article>
+        <article class="quran-tafsir-word-card"><strong>اشْتَعَلَ</strong><span>انتشر وغلب، وشُبّه انتشار الشيب باشتعال النار.</span></article>
+      </div>
+    </section>
+  </div>
+
+  <footer class="quran-tafsir-footer">
+    <div class="quran-tafsir-font-tools" aria-label="حجم خط التفسير">
+      <span>حجم النص</span>
+      <button id="quran-tafsir-font-down" type="button" aria-label="تصغير خط التفسير">A−</button>
+      <strong id="quran-tafsir-font-size">١٥</strong>
+      <button id="quran-tafsir-font-up" type="button" aria-label="تكبير خط التفسير">A+</button>
+    </div>
+    <div class="quran-tafsir-actions">
+      <button id="quran-tafsir-copy" type="button"><span class="ui-icon" data-icon="copy" aria-hidden="true"></span> نسخ الآية</button>
+      <button id="quran-tafsir-note" type="button"><span class="ui-icon" data-icon="notebook-pen" aria-hidden="true"></span> تدوين ملاحظة</button>
+    </div>
+  </footer>
+  <p class="quran-tafsir-source-disclaimer">تنبيه: النص المعروض هنا نموذج توضيحي وليس نقلًا حرفيًا من كتاب تفسير. يجب مراجعة وربط النصوص بالمصادر المعتمدة قبل إتاحتها.</p>
+</section>
+</div>
+<section class="quran-bottom-control-dock" aria-label="أدوات موضع القراءة والتلاوة">
+<div class="quran-bottom-dock-heading"><div><span>أدوات القراءة</span><strong>إعداداتك وموضعك في المصحف</strong></div><span class="quran-local-status"><i></i> تحفظ على هذا الجهاز</span></div>
+<!-- Floating Player & Quick Memorization Controller -->
+<div class="quran-player-card" id="quran-audio-player" aria-label="التلاوة الصوتية">
+  <div class="quran-audio-info">
+    <span class="quran-audio-icon"><span class="ui-icon" data-icon="headphones" aria-hidden="true"></span></span>
+    <div><strong>التلاوة الصوتية</strong><small class="quran-player-current" id="quran-player-current">سورة مريم · الآية ٤</small><small class="quran-player-reciter" id="quran-player-reciter">القارئ المفضل: محمد صديق المنشاوي</small><small class="quran-player-disclaimer">سيُتاح التشغيل بعد ربط ملفات التلاوة المعتمدة.</small></div>
+  </div>
+  <div class="quran-audio-actions">
+    <button aria-label="الآية السابقة" class="quran-audio-step" id="quran-prev-ayah" title="الآية السابقة" type="button"><span class="ui-icon" data-icon="skip-back" aria-hidden="true"></span></button>
+    <button aria-label="التلاوة الصوتية غير متاحة بعد" aria-disabled="true" class="quran-play-button" disabled id="quran-play-toggle" title="التشغيل غير متاح حتى ربط الصوت" type="button"><span class="ui-icon" data-icon="play" aria-hidden="true"></span></button>
+    <button aria-label="الآية التالية" class="quran-audio-step" id="quran-next-ayah" title="الآية التالية" type="button"><span class="ui-icon" data-icon="skip-forward" aria-hidden="true"></span></button>
+  </div>
+  <span class="quran-audio-status"><span></span> الصوت غير مربوط</span>
+</div>
+
+<div class="quran-content-coverage" role="note">
+  <span class="ui-icon" data-icon="info" aria-hidden="true"></span>
+  <span><strong>بيانات المعاينة</strong> النص المعروض حاليًا عينة من سورة مريم (٨ آيات). فهرس السور كامل، أما النص الكامل والتلاوات والتفسير فتحتاج ربط مصادرها المعتمدة قبل الإطلاق.</span>
+</div>
+</section>
+</div>
+<!-- Reading tools drawer: opened on demand; does not consume Mushaf width. -->
+<aside class="quran-sidebar is-collapsed sidebar-transition calm-card rounded-2xl bg-white border border-[#132e25]/10" id="quran-left-sidebar">
+<div class="quran-rail-stack" aria-label="اختصارات أدوات القراءة">
+<button id="btn-toggle-left" aria-label="فتح أدوات القراءة" aria-expanded="false" aria-controls="quran-left-sidebar-content" class="sidebar-rail-toggle" data-rail="tools" onclick="toggleLeftSidebar()" title="أدوات القراءة" type="button"><span class="rail-icon"><span aria-hidden="true" class="ui-icon" data-icon="settings"></span></span><span class="rail-label">أدوات القراءة</span><span class="rail-chevron" aria-hidden="true">›</span></button>
+<button class="quran-rail-action" onclick="openQuranToolSection('quran-font-controls')" title="حجم الخط" aria-label="حجم الخط" type="button"><span class="ui-icon" data-icon="type" aria-hidden="true"></span></button>
+<button class="quran-rail-action" onclick="openQuranToolSection('quran-theme-controls')" title="مظهر المصحف" aria-label="مظهر المصحف" type="button"><span class="ui-icon" data-icon="palette" aria-hidden="true"></span></button>
+<button class="quran-rail-action" onclick="openQuranToolSection('quran-repeat-controls')" title="إعدادات التكرار" aria-label="إعدادات التكرار" type="button"><span class="ui-icon" data-icon="repeat" aria-hidden="true"></span></button>
+</div>
+<div class="sidebar-content" id="quran-left-sidebar-content">
+<!-- Sidebar Header with Close Button -->
+<div class="flex items-center justify-between pb-3 border-b border-[#132e25]/8">
+<div class="flex items-center gap-2 font-bold text-xs text-[#132e25]">
+<svg class="w-4 h-4 text-[#c9f45b]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>أدوات القراءة والتلاوة</span>
+</div>
+<button aria-label="إغلاق أدوات القراءة" class="w-7 h-7 rounded-lg bg-[#f0ede4] hover:bg-[#e4decb] text-[#132e25] flex items-center justify-center text-xs font-bold" onclick="toggleLeftSidebar()" title="إغلاق أدوات القراءة">
+<span aria-hidden="true" class="ui-icon" data-icon="x"></span>
+</button>
+</div>
+<!-- 1. Reciter Picker -->
+<div>
+<label class="block text-xs font-bold text-[#132e25] mb-1.5">القارئ المفضل عند إتاحة التلاوة:</label>
+<select id="quran-reciter-select" class="w-full p-2.5 rounded-xl bg-[#faf8f2] border border-[#132e25]/10 text-xs text-[#132e25] font-semibold focus:outline-none">
+<option value="minshawi">محمد صديق المنشاوي (المرتل)</option>
+<option value="abdulbasit">عبد الباسط عبد الصمد</option>
+<option value="husary">محمود خليل الحصري</option>
+<option value="afasy">مشاري راشد العفاسي</option>
+<option value="muaiqly">ماهر المعيقلي</option>
+</select>
+</div>
+<!-- 2. Reading Tone Theme -->
+<div>
+<label class="block text-xs font-bold text-[#132e25] mb-1.5">مظهر المصحف:</label>
+<div class="grid grid-cols-3 gap-2 text-[11px] text-center font-semibold" id="quran-theme-controls" aria-label="اختيار مظهر المصحف">
+<button type="button" data-quran-theme="theme-warm" aria-pressed="true" class="quran-theme-choice quran-theme-active">ورق هادئ</button>
+<button type="button" data-quran-theme="theme-ivory" aria-pressed="false" class="quran-theme-choice">عاجي</button>
+<button type="button" data-quran-theme="theme-night" aria-pressed="false" class="quran-theme-choice">أخضر ليلي</button>
+</div>
+</div>
+<!-- 3. Font Size Controls -->
+<div id="quran-font-controls">
+<div class="flex items-center justify-between text-xs font-bold text-[#132e25] mb-1.5">
+<span>حجم الخط القرآني:</span>
+<span class="text-[#71857b] font-normal">٣٧px</span>
+</div>
+<div class="flex items-center gap-2 bg-[#f0ede4] p-1.5 rounded-xl">
+<button class="flex-1 py-1 rounded-lg bg-white shadow-sm font-bold text-xs text-[#132e25] hover:text-[#c9f45b]">A- تصغير</button>
+<button class="flex-1 py-1 rounded-lg bg-white shadow-sm font-bold text-xs text-[#132e25] hover:text-[#c9f45b]">A+ تكبير</button>
+</div>
+</div>
+<!-- 4. Reading Aids Toggles -->
+<div class="space-y-2.5 pt-2 border-t border-[#132e25]/8 text-xs">
+<label class="flex items-center justify-between cursor-pointer">
+<span class="text-[#384a42] font-semibold">ألوان أحكام التجويد <small>تحتاج طبقة علامات تجويد موثقة</small></span>
+<input class="w-4 h-4 accent-[#245241]" disabled type="checkbox" aria-label="ألوان التجويد غير متاحة قبل ربط بيانات التجويد"/>
+</label>
+<label class="flex items-center justify-between cursor-pointer">
+<span class="text-[#384a42] font-semibold">تظليل الآية أثناء التلاوة <small>يتاح بعد ربط ملفات الصوت</small></span>
+<input class="w-4 h-4 accent-[#245241]" disabled type="checkbox" aria-label="تظليل الآية غير متاح قبل ربط الصوت"/>
+</label>
+<label class="flex items-center justify-between cursor-pointer">
+<span class="text-[#384a42] font-semibold">إظهار علامات الوقف <small>تحتاج نسخة نصية بعلامات الوقف</small></span>
+<input class="w-4 h-4 accent-[#245241]" disabled type="checkbox" aria-label="علامات الوقف غير متاحة قبل ربط بيانات النص"/>
+</label>
+<label class="flex items-center justify-between cursor-pointer">
+<span class="text-[#384a42] font-semibold">التمرير التلقائي للآية</span>
+<input id="quran-auto-scroll" class="w-4 h-4 accent-[#245241]" type="checkbox"/>
+</label>
+</div>
+<!-- 5. Memorization Quick Loop Box -->
+<div class="p-3.5 rounded-xl bg-[#faf8f2] border border-[#132e25]/10 space-y-2 text-xs" id="quran-repeat-controls">
+<div class="flex items-center justify-between font-bold text-[#132e25]">
+<span>هدف تكرار الآيات:</span>
+<span class="quran-repeat-selection-status" id="quran-repeat-status">٣ مرات</span>
+</div>
+<p class="text-[10px] text-[#71857b]">احفظ عدد مرات التكرار المفضل لك. يتطلب التشغيل التلقائي ربط ملفات التلاوة.</p>
+<div class="flex items-center gap-1.5 pt-1 text-[11px]">
+<button class="px-2.5 py-1 rounded-md bg-[#112921] text-white font-bold">٣ مرات</button>
+<button class="px-2.5 py-1 rounded-md bg-[#f0ede4] text-[#132e25]">٥ مرات</button>
+<button class="px-2.5 py-1 rounded-md bg-[#f0ede4] text-[#132e25]">تكرار مستمر</button>
+</div>
+</div>
+<!-- Quick Action Buttons -->
+<div class="space-y-2 pt-2 border-t border-[#132e25]/8">
+<button id="quran-save-position-drawer" class="quran-save-drawer-button w-full py-2.5 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-2" type="button">
+<svg class="w-4 h-4 text-[#c9f45b]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>حفظ موضع قراءة اليوم</span>
+</button>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<div aria-labelledby="quran-note-title" aria-modal="true" class="quran-note-overlay hidden" id="quran-note-modal" role="dialog">
+<div class="quran-note-dialog">
+<div class="quran-note-dialog-head"><div><span>مساحة خاصة بك</span><h3 id="quran-note-title">ملاحظة على الآية</h3></div><button aria-label="إغلاق" id="quran-note-close" type="button">×</button></div>
+<p id="quran-note-context">سورة مريم · الآية ٤</p>
+<textarea id="quran-note-text" placeholder="اكتب تدبراً أو فائدة أو سؤالاً تريد الرجوع إليه..." rows="5"></textarea>
+<div class="quran-note-dialog-actions"><button class="quran-utility-button" id="quran-note-cancel" type="button">إلغاء</button><button class="quran-utility-button is-primary" id="quran-note-save" type="button">حفظ الملاحظة</button></div>
+<small>تُحفظ الملاحظات على هذا المتصفح فقط؛ وإذا منع المتصفح التخزين المحلي فتبقى مؤقتاً أثناء جلسة المعاينة.</small>
+</div>
+</div>
+</div></main><div id="account-modal-root"></div><div id="site-footer-root"></div><div id="mobile-nav-root"></div>
+<script src="../assets/js/components.js"></script><script src="../assets/js/store-cart.js"></script><script src="../assets/js/app.js"></script><script src="../assets/js/page-router.js"></script><script src="../assets/js/quran-enhancements.js"></script><script src="../assets/js/motion.js"></script><script src="../assets/js/design-system.js"></script></body></html>

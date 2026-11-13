@@ -1,0 +1,255 @@
+/* V36 — Quran page: black, readable typography; compact margins; position toolbar under hero. */
+#screen-quran {
+  color:#171a17 !important;
+}
+
+/* The position and navigation strip sits directly under the hero. */
+#screen-quran .quran-position-under-hero {
+  width:100% !important;
+  padding-inline:clamp(7px,1vw,14px) !important;
+  margin:12px auto 0 !important;
+}
+#screen-quran .quran-position-under-hero .quran-session-strip {
+  display:grid !important;
+  grid-template-columns:minmax(190px,1fr) minmax(390px,1.55fr) auto !important;
+  align-items:center !important;
+  gap:14px !important;
+  width:100% !important;
+  margin:0 !important;
+  padding:12px 15px !important;
+  border:1px solid #dce4d9 !important;
+  border-radius:15px !important;
+  background:#fff !important;
+  color:#171a17 !important;
+  box-shadow:0 4px 15px rgba(26,43,28,.045) !important;
+}
+#screen-quran .quran-position-under-hero .quran-session-progress,
+#screen-quran .quran-position-under-hero .quran-page-navigation,
+#screen-quran .quran-position-under-hero .quran-session-actions {min-width:0 !important;}
+#screen-quran .quran-position-under-hero .quran-session-heading,
+#screen-quran .quran-position-under-hero .quran-session-heading span,
+#screen-quran .quran-position-under-hero .quran-session-heading strong {
+  color:#171a17 !important;
+}
+#screen-quran .quran-position-under-hero .quran-session-heading strong {font-size:12px !important;font-weight:800 !important;}
+#screen-quran .quran-position-under-hero .quran-session-progress small,
+#screen-quran .quran-position-under-hero .quran-page-navigation-note {color:#5e655f !important;}
+#screen-quran .quran-position-under-hero .quran-page-navigation,
+#screen-quran .quran-position-under-hero .quran-session-actions {color:#171a17 !important;}
+#screen-quran .quran-position-under-hero .quran-page-navigation label {color:#171a17 !important;}
+#screen-quran .quran-position-under-hero .quran-page-navigation input {
+  color:#111 !important;background:#fff !important;border:1px solid #cfd8ce !important;
+}
+#screen-quran .quran-position-under-hero .quran-utility-button {
+  color:#171a17 !important;background:#f5f7f3 !important;border:1px solid #dce4d9 !important;
+}
+#screen-quran .quran-position-under-hero .quran-utility-button:hover {background:#eaf1e6 !important;border-color:#c8d8c2 !important;}
+#screen-quran .quran-position-under-hero .quran-utility-button.is-primary {
+  color:#171a17 !important;background:#e5efdf !important;border-color:#cbdcc4 !important;
+}
+#screen-quran .quran-position-under-hero .quran-session-actions {display:flex !important;gap:7px !important;flex-wrap:nowrap !important;}
+#screen-quran .quran-position-under-hero .quran-session-actions button {white-space:nowrap !important;}
+
+/* Tight, balanced page margins. The two icon rails use the space at the edges. */
+#screen-quran > .w-full.px-2,
+#screen-quran .quran-position-under-hero {max-width:none !important;}
+#screen-quran .quran-workspace,
+#screen-quran .quran-fullwidth-workspace {
+  width:100% !important;
+  max-width:none !important;
+  gap:10px !important;
+}
+#screen-quran #quran-right-sidebar,
+#screen-quran #quran-left-sidebar {margin:0 !important;}
+#screen-quran #quran-center-workspace {min-width:0 !important;}
+#screen-quran #quran-split-container {gap:14px !important;}
+
+/* Main interface copy is black/neutral, not green. Green is reserved for icons and small accents. */
+#screen-quran .quran-reader-mode-copy,
+#screen-quran .quran-reader-mode-copy strong,
+#screen-quran .quran-reader-mode-copy span,
+#screen-quran .quran-session-heading,
+#screen-quran .quran-session-heading strong,
+#screen-quran .quran-page-navigation,
+#screen-quran .quran-page-navigation label,
+#screen-quran .quran-page-navigation-note,
+#screen-quran .quran-session-actions,
+#screen-quran .quran-utility-button,
+#screen-quran .quran-last-position,
+#screen-quran .quran-selected-verse-tools,
+#screen-quran .quran-selected-verse-tools strong,
+#screen-quran .quran-selected-verse-tools small,
+#screen-quran .quran-selected-actions button,
+#screen-quran .quran-bottom-dock-heading,
+#screen-quran .quran-bottom-dock-heading strong,
+#screen-quran .quran-audio-info strong,
+#screen-quran .quran-player-current,
+#screen-quran .quran-player-reciter,
+#screen-quran .quran-player-disclaimer,
+#screen-quran .quran-audio-status,
+#screen-quran .quran-session-progress small,
+#screen-quran .quran-content-coverage,
+#screen-quran .quran-content-coverage strong {
+  color:#171a17 !important;
+}
+#screen-quran .quran-reader-mode-copy span,
+#screen-quran .quran-session-progress small,
+#screen-quran .quran-page-navigation-note,
+#screen-quran .quran-player-current,
+#screen-quran .quran-player-reciter,
+#screen-quran .quran-player-disclaimer,
+#screen-quran .quran-audio-status,
+#screen-quran .quran-content-coverage {color:#626a63 !important;}
+
+/* Sidebar labels and controls: black text, restrained neutral secondary text. */
+#screen-quran .quran-sidebar,
+#screen-quran .quran-sidebar .sidebar-content,
+#screen-quran .quran-sidebar .sidebar-content :is(p,strong,span,label,small,button,a,h2,h3,h4,h5),
+#screen-quran .quran-surah-row,
+#screen-quran .quran-surah-row-copy strong,
+#screen-quran .quran-surah-row-action,
+#screen-quran .quran-surah-number,
+#screen-quran .quran-last-position {color:#171a17 !important;}
+#screen-quran .quran-sidebar .sidebar-content :is(small,.text-xs,.text-\[10px\]) {color:#616861 !important;}
+#screen-quran .quran-sidebar .sidebar-content input:not([type=checkbox]),
+#screen-quran .quran-sidebar .sidebar-content select {color:#171a17 !important;}
+#screen-quran .quran-sidebar .sidebar-content input::placeholder {color:#737b74 !important;}
+#screen-quran .quran-sidebar .sidebar-rail-toggle,
+#screen-quran .quran-rail-action {color:#171a17 !important;}
+#screen-quran .quran-sidebar .sidebar-rail-toggle .rail-icon,
+#screen-quran .quran-rail-action .ui-icon {color:#315f3b !important;}
+#screen-quran .quran-surah-row.is-current,
+#screen-quran .quran-index-tab-active {color:#171a17 !important;}
+
+/* The Mushaf paper and Quran text: true near-black typography for comfortable contrast. */
+#screen-quran .mushaf-page-frame {color:#171a17 !important;}
+#screen-quran .mushaf-page-meta,
+#screen-quran .mushaf-page-meta span,
+#screen-quran .mushaf-surah-kicker,
+#screen-quran .mushaf-surah-details,
+#screen-quran .quran-page-footer {color:#454b45 !important;}
+#screen-quran .mushaf-surah-header h2,
+#screen-quran .mushaf-page-frame > .text-center .font-quran,
+#screen-quran #quran-ayah-list,
+#screen-quran #quran-ayah-list .quran-ayah,
+#screen-quran #quran-ayah-list .quran-ayah-text,
+#screen-quran .quran-selected-reference {color:#111 !important;}
+#screen-quran #quran-ayah-list .quran-ayah-number {
+  color:#171a17 !important;background:#edf2e9 !important;border-color:#cbd8c5 !important;
+}
+#screen-quran #quran-ayah-list .quran-ayah.is-active .quran-ayah-number {
+  color:#171a17 !important;background:#dce9d5 !important;border-color:#b9cdae !important;
+}
+#screen-quran #quran-ayah-list .quran-ayah.is-active {color:#111 !important;}
+#screen-quran .quran-selected-verse-tools,
+#screen-quran .quran-selected-verse-tools strong,
+#screen-quran .quran-selected-verse-tools small {color:#171a17 !important;}
+#screen-quran .quran-selected-actions button {color:#171a17 !important;}
+#screen-quran .quran-selected-actions button.is-bookmarked {color:#171a17 !important;background:#e6efe0 !important;}
+#screen-quran #quran-tafsir-pane,
+#screen-quran #quran-tafsir-pane :is(h4,h5,p,strong,span,button) {color:#171a17 !important;}
+#screen-quran #quran-tafsir-pane .quran-tafsir-coverage,
+#screen-quran .quran-content-coverage {color:#5d655e !important;}
+#screen-quran #quran-tafsir-pane .quran-tafsir-coverage strong,
+#screen-quran .quran-content-coverage strong {color:#171a17 !important;}
+
+/* Buttons keep the site's green identity in their surfaces, not in long text labels. */
+#screen-quran .quran-utility-button,
+#screen-quran .quran-layout-button,
+#screen-quran .quran-theme-choice,
+#screen-quran .quran-audio-step,
+#screen-quran .quran-repeat-selection-status,
+#screen-quran #quran-repeat-controls button,
+#screen-quran #quran-font-controls button {
+  color:#171a17 !important;
+}
+#screen-quran .quran-layout-button.is-active,
+#screen-quran .quran-utility-button.is-primary,
+#screen-quran .quran-play-button {
+  background:#e2eddb !important;border-color:#c7d8bf !important;color:#171a17 !important;
+}
+#screen-quran .quran-theme-choice.quran-theme-active {color:#171a17 !important;}
+
+/* Night page remains intentionally light-on-dark for legibility. */
+#screen-quran .mushaf-page-frame.theme-night,
+#screen-quran .mushaf-page-frame.theme-night .mushaf-surah-header h2,
+#screen-quran .mushaf-page-frame.theme-night #quran-ayah-list,
+#screen-quran .mushaf-page-frame.theme-night #quran-ayah-list .quran-ayah,
+#screen-quran .mushaf-page-frame.theme-night #quran-ayah-list .quran-ayah-text,
+#screen-quran .mushaf-page-frame.theme-night .mushaf-page-meta,
+#screen-quran .mushaf-page-frame.theme-night .mushaf-surah-details,
+#screen-quran .mushaf-page-frame.theme-night .quran-page-footer {color:#f1f3ec !important;}
+#screen-quran .mushaf-page-frame.theme-night #quran-ayah-list .quran-ayah-number {color:#17251a !important;}
+
+@media (max-width:1120px) {
+  #screen-quran .quran-position-under-hero .quran-session-strip {grid-template-columns:1fr 1.2fr !important;}
+  #screen-quran .quran-position-under-hero .quran-session-progress {grid-column:1/-1 !important;}
+  #screen-quran .quran-position-under-hero .quran-session-actions {justify-content:flex-start !important;flex-wrap:wrap !important;}
+}
+@media (max-width:760px) {
+  #screen-quran .quran-position-under-hero {padding-inline:7px !important;margin-top:9px !important;}
+  #screen-quran .quran-position-under-hero .quran-session-strip {grid-template-columns:1fr !important;gap:10px !important;padding:11px !important;}
+  #screen-quran .quran-position-under-hero .quran-session-progress {grid-column:auto !important;}
+  #screen-quran .quran-position-under-hero .quran-page-navigation {display:grid !important;grid-template-columns:auto auto 52px auto auto !important;justify-content:stretch !important;gap:5px !important;}
+  #screen-quran .quran-position-under-hero .quran-page-navigation-note {grid-column:1/-1 !important;}
+  #screen-quran .quran-position-under-hero .quran-session-actions {display:grid !important;grid-template-columns:repeat(3,minmax(0,1fr)) !important;gap:6px !important;}
+  #screen-quran .quran-position-under-hero .quran-session-actions button {justify-content:center !important;padding-inline:7px !important;font-size:10px !important;}
+  #screen-quran > .w-full.px-2 {padding-inline:5px !important;}
+  #screen-quran .quran-workspace,#screen-quran .quran-fullwidth-workspace {gap:6px !important;}
+}
+
+
+/* V37: selected-verse actions sit in the toolbar above the surah title. */
+#screen-quran .quran-reader-primary-column > .quran-selected-verse-tools{
+  width:100%!important;max-width:100%!important;margin:8px auto 14px!important;
+  padding:10px 12px!important;display:flex!important;align-items:center!important;
+  justify-content:space-between!important;gap:12px!important;flex-wrap:wrap!important;
+  border:1px solid rgba(221,237,210,.18)!important;border-radius:13px!important;
+  background:linear-gradient(110deg,rgba(15,53,34,.94),rgba(33,78,51,.94))!important;
+  box-shadow:0 5px 16px rgba(6,26,15,.10)!important;
+}
+#screen-quran .quran-reader-primary-column > .quran-selected-verse-tools>div:first-child{min-width:150px!important;flex:1 1 190px!important}
+#screen-quran .quran-reader-primary-column > .quran-selected-verse-tools strong{color:#fff!important;font-size:11px!important}
+#screen-quran .quran-reader-primary-column > .quran-selected-verse-tools small{color:#e0eadf!important;font-size:9px!important;line-height:1.65!important}
+#screen-quran .quran-reader-primary-column > .quran-selected-verse-tools .quran-selected-actions{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:6px!important;flex:2 1 520px!important}
+#screen-quran .quran-reader-primary-column > .quran-selected-verse-tools .quran-selected-actions button{min-height:34px!important;padding-inline:11px!important;border-radius:9px!important;font-size:9px!important;white-space:nowrap!important}
+@media(max-width:760px){
+  #screen-quran .quran-reader-primary-column > .quran-selected-verse-tools{align-items:stretch!important;flex-direction:column!important;margin:7px auto 12px!important;padding:10px!important}
+  #screen-quran .quran-reader-primary-column > .quran-selected-verse-tools .quran-selected-actions{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}
+  #screen-quran .quran-reader-primary-column > .quran-selected-verse-tools .quran-selected-actions button{padding-inline:6px!important;font-size:8px!important}
+}
+
+
+/* V37.1 — clear hierarchy: verse actions, independent surah identity card, Quran paper. */
+#screen-quran .quran-reader-primary-column{display:flex!important;flex-direction:column!important;gap:12px!important;min-width:0!important;width:100%!important;}
+#screen-quran .quran-reader-primary-column > .quran-selected-verse-tools{order:0!important;margin:0 0 1px!important;}
+#screen-quran .mushaf-surah-header-detached{
+  order:1!important;position:relative!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;
+  width:100%!important;max-width:none!important;min-height:108px!important;margin:0!important;padding:17px 20px 15px!important;
+  border:1px solid #dfe7da!important;border-radius:17px!important;
+  background:linear-gradient(135deg,#f5f8f2 0%,#ffffff 58%,#f4f7f0 100%)!important;
+  box-shadow:0 5px 17px rgba(32,55,34,.045)!important;text-align:center!important;
+}
+#screen-quran .mushaf-surah-header-detached:before{content:"";position:absolute;inset:7px;border:1px solid rgba(107,139,94,.16);border-radius:12px;pointer-events:none;}
+#screen-quran .mushaf-surah-header-detached .mushaf-surah-kicker{position:relative;z-index:1;color:#606a60!important;font:700 10px Alexandria,sans-serif!important;letter-spacing:.02em!important;}
+#screen-quran .mushaf-surah-header-detached h2{position:relative;z-index:1;margin:6px 0 7px!important;color:#111!important;font-size:clamp(27px,2.5vw,35px)!important;line-height:1.55!important;}
+#screen-quran .mushaf-surah-header-detached .mushaf-surah-details{position:relative;z-index:1;display:flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;color:#535b53!important;font-size:10px!important;}
+#screen-quran .mushaf-surah-header-detached .mushaf-surah-details i{width:4px;height:4px;border-radius:50%;background:#718b66!important;}
+#screen-quran .quran-reader-primary-column .mushaf-page-frame{order:2!important;width:100%!important;margin:0!important;}
+#screen-quran .mushaf-page-frame .mushaf-page-meta{margin-bottom:18px!important;}
+#screen-quran .mushaf-page-frame .mushaf-surah-header{display:none!important;}
+#screen-quran .mushaf-surah-header-detached.theme-warm{background:linear-gradient(135deg,#f5f8f2 0%,#fff 58%,#f4f7f0 100%)!important;border-color:#dfe7da!important;}
+#screen-quran .mushaf-surah-header-detached.theme-warm h2{color:#111!important;}
+#screen-quran .mushaf-surah-header-detached.theme-ivory{background:linear-gradient(135deg,#f5efdf,#eee5d2)!important;border-color:#dfd2b8!important;}
+#screen-quran .mushaf-surah-header-detached.theme-ivory h2{color:#17130d!important;}
+#screen-quran .mushaf-surah-header-detached.theme-night{background:linear-gradient(140deg,#294b35,#203d2d)!important;border-color:#45634a!important;}
+#screen-quran .mushaf-surah-header-detached.theme-night .mushaf-surah-kicker,
+#screen-quran .mushaf-surah-header-detached.theme-night h2,
+#screen-quran .mushaf-surah-header-detached.theme-night .mushaf-surah-details{color:#f0f2e8!important;}
+#screen-quran .mushaf-surah-header-detached.theme-night .mushaf-surah-details i{background:#a9c19d!important;}
+@media(max-width:760px){
+ #screen-quran .quran-reader-primary-column{gap:9px!important;}
+ #screen-quran .mushaf-surah-header-detached{min-height:92px!important;padding:12px 13px!important;border-radius:13px!important;}
+ #screen-quran .mushaf-surah-header-detached h2{font-size:26px!important;margin:3px 0 5px!important;}
+ #screen-quran .mushaf-surah-header-detached .mushaf-surah-details{gap:7px!important;font-size:9px!important;}
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar"><head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#112921" name="theme-color"/><meta content="موسوعة الحديث النبوي والقدسي — المنصة الإسلامية." name="description"/>
+<title>موسوعة الحديث النبوي والقدسي | المنصة الإسلامية</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;family=Amiri:wght@400;700&amp;family=Noto+Naskh+Arabic:wght@400;600;700&amp;display=swap">
+<link href="../assets/css/site.css" rel="stylesheet"/><link href="../assets/css/articles.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script><script src="../assets/js/tailwind-config.js"></script><link rel="stylesheet" href="../assets/css/design-system.css"><script>(function(){try{var d=localStorage.getItem("platform-theme")==="dark";document.documentElement.classList.toggle("dark",d);document.documentElement.classList.toggle("light",!d);}catch(e){}})();</script></head>
+<body class="min-h-screen flex flex-col w-full"><div id="site-header-root"></div><main class="flex-1 w-full"><div class="screen-view w-full page-hadith" id="screen-hadith">
+<section class="inner-page-hero text-white pt-8 pb-8 w-full px-6 sm:px-10 lg:px-16">
+<div class="w-full relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-semibold text-[#e2f5b8] border border-white/15 mb-3">
+<span class="w-2 h-2 rounded-full bg-[#c9f45b]"></span>
+            الجامع المسند الصحيح
+          </div>
+<h1 class="text-3xl sm:text-4xl font-bold tracking-tight mb-3 text-white">
+            موسوعة الحديث النبوي والقدسي
+          </h1>
+<p class="text-xs sm:text-sm text-[#b8cbbf] max-w-xl mx-auto mb-6 font-normal leading-relaxed">
+            أحاديث النبي ﷺ من أمهات كتب السنة المعتمدة مع بيان المتن والسند والتخريج بدون تشتيت بصري.
+          </p>
+<div class="relative w-full">
+<div class="page-search-shell">
+<div class="pr-3 text-[#526a5f]">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<input class="w-full pr-2 pl-4 py-2.5 text-sm text-[#112921] placeholder-[#7d8f85] bg-transparent focus:outline-none" id="hadith-search-input" oninput="filterHadithResults()" placeholder="ابحث بلفظ الحديث، الراوي، السند، أو الباب الفقهي..." type="search"/>
+<button class="page-search-submit">
+                بحث في السنة
+              </button>
+</div>
+</div>
+</div>
+</section>
+<div class="w-full px-6 sm:px-10 lg:px-16 mt-8 mb-20">
+<div class="hadith-filter-toolbar">
+<div class="hadith-results-summary"><strong id="hadith-result-count">النتائج المطابقة</strong><span>يمكنك تضييق النتائج حسب درجة الحديث أو مصدره.</span></div>
+<div class="hadith-filter-controls"><label class="hadith-filter-field"><span>نوع الحديث</span><select id="hadith-type-filter" onchange="filterHadithResults()"><option value="all">كل الأحاديث</option><option value="nabawi">الأحاديث النبوية</option><option value="qudsi">الأحاديث القدسية</option></select></label>
+<label class="hadith-filter-field"><span>درجة الحديث</span>
+<select id="hadith-grade-filter" onchange="filterHadithResults()">
+<option value="all">جميع الدرجات</option>
+<option value="sahih">صحيح</option>
+<option value="hasan">حسن</option>
+<option value="daif">ضعيف</option>
+</select>
+</label>
+<label class="hadith-filter-field hadith-source-field"><span>مصدر الحديث</span>
+<select id="hadith-source-filter" onchange="filterHadithResults()">
+<option value="all">كل الكتب التسعة</option>
+<optgroup label="الكتب التسعة">
+<option value="bukhari">صحيح البخاري</option>
+<option value="muslim">صحيح مسلم</option>
+<option value="abu-dawud">سنن أبي داود</option>
+<option value="tirmidhi">جامع الترمذي</option>
+<option value="nasai">سنن النسائي</option>
+<option value="ibn-majah">سنن ابن ماجه</option>
+<option value="muwatta">موطأ مالك</option>
+<option value="musnad-ahmad">مسند أحمد</option>
+<option value="darimi">سنن الدارمي</option>
+</optgroup>
+<option value="nawawi">الأربعون النووية · مجموعة مستقلة</option>
+</select>
+</label>
+</div>
+</div>
+<div class="space-y-6 max-w-5xl mx-auto" id="hadith-results-list">
+<article class="calm-card rounded-2xl p-6 sm:p-8" data-hadith-grade="sahih" data-hadith-source="bukhari">
+<div class="flex items-center justify-between mb-4 pb-3 border-b border-[#132e25]/8 flex-wrap gap-2">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#eef5f1] text-[#245241] text-xs font-bold border border-[#245241]/20">
+<span class="w-1.5 h-1.5 rounded-full bg-[#245241]"></span>
+                  صحيح متفق عليه
+                </span>
+<span class="text-xs text-[#71857b]">صحيح البخاري • كتاب بدء الوحي • حديث رقم ١</span>
+</div>
+<span class="text-xs text-[#718f3d] bg-[#fbf5ea] px-3 py-1 rounded-md border border-[#718f3d]/20 font-semibold">باب: كيف كان بدء الوحي</span>
+</div>
+<p class="text-xs text-[#71857b] leading-relaxed mb-4 font-normal">
+              حَدَّثَنَا الحُمَيْدِيُّ عَبْدُ اللَّهِ بْنُ الزُّبَيْرِ، قَالَ: حَدَّثَنَا سُفْيَانُ، قَالَ: حَدَّثَنَا يَحْيَى بْنُ سَعِيدٍ الأَنْصَارِيُّ: عَنْ مُحَمَّدِ بْنِ إِبْرَاهِيمَ التَّيْمِيِّ، أَنَّهُ سَمِعَ عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ، يَقُولُ: سَمِعْتُ عُمَرَ بْنَ الخَطَّابِ رَضِيَ اللَّهُ عَنْهُ عَلَى المِنْبَرِ قَالَ: سَمِعْتُ رَسُولَ اللَّهِ ﷺ يَقُولُ:
+            </p>
+<div class="p-5 sm:p-6 rounded-2xl bg-[#faf8f2] border border-[#132e25]/6 text-[#122820] font-quran text-xl sm:text-2xl leading-loose font-bold my-4">
+              «إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ، وَإِنَّمَا لِكُلِّ امْرِئٍ مَا نَوَى، فَمَنْ كَانَتْ هِجْرَتُهُ إِلَى دُنْيَا يُصِيبُهَا، أَوْ إِلَى امْرَأَةٍ يَنْكِحُهَا، فَهِجْرَتُهُ إِلَى مَا هَاجَرَ إِلَيْهِ».
+            </div>
+<div class="flex items-center justify-between pt-4 border-t border-[#132e25]/8 text-xs text-[#63756d]">
+<div class="flex items-center gap-4">
+<button class="hover:text-[#132e25] flex items-center gap-1.5 font-semibold">
+<svg class="w-4 h-4 text-[#4e826f]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>استماع صوتي</span>
+</button>
+<button class="hover:text-[#132e25] flex items-center gap-1.5 font-semibold">
+<svg class="w-4 h-4 text-[#718f3d]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>عرض الشرح والفوائد</span>
+</button>
+<button class="hover:text-[#132e25] flex items-center gap-1.5 font-semibold">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>حفظ في المفضلة</span>
+</button>
+</div>
+</div>
+</article>
+</div>
+<div class="hadith-empty-state" hidden="" id="hadith-empty-state">لا توجد أحاديث مطابقة لهذه الفلاتر في محتوى المعاينة الحالي.</div>
+</div>
+</div></main><div id="account-modal-root"></div><div id="site-footer-root"></div><div id="mobile-nav-root"></div>
+<script src="../assets/js/components.js"></script><script src="../assets/js/store-cart.js"></script><script src="../assets/js/app.js"></script><script src="../assets/js/page-router.js"></script><script src="../assets/js/motion.js"></script><script src="../assets/js/design-system.js"></script></body></html>

@@ -1,0 +1,92 @@
+/* V39 — clear Quran/Tafsir mode selector and readable Tafsir typography. */
+#screen-quran .quran-reader-primary-column > .quran-layout-only-bar {
+  order: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  margin: 0 0 1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#screen-quran .quran-reader-primary-column > .quran-layout-only-bar .quran-layout-switch {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  margin: 0 auto !important;
+  padding: 4px !important;
+  border: 1px solid #d8e2d5 !important;
+  border-radius: 13px !important;
+  background: #edf3ea !important;
+  box-shadow: 0 3px 11px rgba(28, 55, 35, .055) !important;
+}
+#screen-quran .quran-reader-primary-column > .quran-layout-only-bar .quran-layout-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  min-height: 38px !important;
+  padding: 0 17px !important;
+  border: 1px solid transparent !important;
+  border-radius: 9px !important;
+  background: transparent !important;
+  color: #26352a !important;
+  font: 700 11px Alexandria, sans-serif !important;
+  white-space: nowrap !important;
+  box-shadow: none !important;
+}
+#screen-quran .quran-reader-primary-column > .quran-layout-only-bar .quran-layout-button .ui-icon { color: #365c3d !important; }
+#screen-quran .quran-reader-primary-column > .quran-layout-only-bar .quran-layout-button.is-active {
+  background: #285238 !important;
+  border-color: #285238 !important;
+  color: #fff !important;
+  box-shadow: 0 2px 7px rgba(23, 59, 37, .16) !important;
+}
+#screen-quran .quran-reader-primary-column > .quran-layout-only-bar .quran-layout-button.is-active .ui-icon { color: #fff !important; }
+
+/* Tafsir: near-black reading copy; restrained grey only for secondary notes. */
+#screen-quran #quran-tafsir-pane {
+  color: #171a17 !important;
+  background: #fff !important;
+  border-color: #dce5da !important;
+}
+#screen-quran #quran-tafsir-pane :is(h1,h2,h3,h4,h5,h6,p,li,dt,dd,strong,b,em,label,span,small) {
+  color: #171a17 !important;
+}
+#screen-quran #quran-tafsir-pane #quran-tafsir-verse {
+  color: #111 !important;
+  background: #f6f7f3 !important;
+  border-color: #e1e6dc !important;
+}
+#screen-quran #quran-tafsir-pane #quran-tafsir-verse * { color: #111 !important; }
+#screen-quran #quran-tafsir-pane #quran-tafsir-coverage,
+#screen-quran #quran-tafsir-pane .text-secondary,
+#screen-quran #quran-tafsir-pane small { color: #555e56 !important; }
+#screen-quran #quran-tafsir-pane .bg-\[\#eef5f1\],
+#screen-quran #quran-tafsir-pane .bg-\[\#faf8f2\] {
+  color: #171a17 !important;
+}
+#screen-quran #quran-tafsir-pane button {
+  color: #202820 !important;
+}
+#screen-quran #quran-tafsir-pane button:first-of-type {
+  color: #fff !important;
+  background: #285238 !important;
+}
+#screen-quran #quran-tafsir-pane button:first-of-type * { color: #fff !important; }
+#screen-quran #quran-tafsir-pane button:not(:first-of-type) {
+  background: #f0f4ed !important;
+  border: 1px solid #dce5d8 !important;
+}
+#screen-quran #quran-tafsir-pane .quran-tafsir-coverage {
+  color: #535b53 !important;
+  background: #f4f6f1 !important;
+  border-color: #e1e7dc !important;
+}
+@media (max-width: 760px) {
+  #screen-quran .quran-reader-primary-column > .quran-layout-only-bar .quran-layout-switch { width: 100% !important; }
+  #screen-quran .quran-reader-primary-column > .quran-layout-only-bar .quran-layout-button { flex: 1 1 0 !important; min-width: 0 !important; padding-inline: 8px !important; font-size: 9px !important; }
+}

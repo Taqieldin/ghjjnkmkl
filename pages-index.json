@@ -1,0 +1,479 @@
+[
+  {
+    "screen_id": "home",
+    "title": "مساحة هادئة للقراءة والتدبر",
+    "file": "index.html"
+  },
+  {
+    "screen_id": "profile",
+    "title": "مساحتي الشخصية",
+    "file": "pages/account.html"
+  },
+  {
+    "screen_id": "adhkar",
+    "title": "الأدعية والأذكار",
+    "file": "pages/adhkar.html"
+  },
+  {
+    "screen_id": "article-detail",
+    "title": "كيف تبدأ قراءة تفسير القرآن؟",
+    "file": "pages/article-detail.html"
+  },
+  {
+    "screen_id": "articles",
+    "title": "معرفة تستحق أن تتوقف عندها",
+    "file": "pages/articles.html"
+  },
+  {
+    "screen_id": "author-detail",
+    "title": "سيرة المؤلف",
+    "file": "pages/author-detail.html"
+  },
+  {
+    "screen_id": "library-authors",
+    "title": "تراجم الأئمة والمؤلفين",
+    "file": "pages/authors.html"
+  },
+  {
+    "screen_id": "bibliographies",
+    "title": "أدلة القراءة والمصادر",
+    "file": "pages/bibliographies.html",
+    "description": "قوائم كتب ومصادر مرتبة حسب الموضوع لمساعدة القارئ على اختيار مراجع مناسبة."
+  },
+  {
+    "screen_id": "bibliography-detail",
+    "title": "قائمة المراجع",
+    "file": "pages/bibliography-detail.html"
+  },
+  {
+    "screen_id": "book-detail",
+    "title": "صفحة الكتاب",
+    "file": "pages/book-detail.html"
+  },
+  {
+    "screen_id": "book-reader",
+    "title": "قارئ الكتاب",
+    "file": "pages/book-reader.html"
+  },
+  {
+    "screen_id": "discover",
+    "title": "استكشف كل أبواب المعرفة والعبادة",
+    "file": "pages/discover.html"
+  },
+  {
+    "screen_id": "requests",
+    "title": "الدعم واقتراح ميزة",
+    "file": "pages/feature-requests.html"
+  },
+  {
+    "screen_id": "feed",
+    "title": "الفيد المعرفي",
+    "file": "pages/feed.html"
+  },
+  {
+    "screen_id": "fiqh-comparison",
+    "title": "مقارنة المذاهب الأربعة",
+    "file": "pages/fiqh-comparison.html"
+  },
+  {
+    "screen_id": "hadith-qudsi",
+    "title": "الأحاديث القدسية",
+    "file": "pages/hadith-qudsi.html"
+  },
+  {
+    "screen_id": "hadith",
+    "title": "موسوعة الحديث النبوي الشريف",
+    "file": "pages/hadith.html"
+  },
+  {
+    "screen_id": "hajj",
+    "title": "دليل الحج والعمرة",
+    "file": "pages/hajj-umrah.html"
+  },
+  {
+    "screen_id": "calendar",
+    "title": "التقويم الإسلامي",
+    "file": "pages/hijri-calendar.html"
+  },
+  {
+    "screen_id": "pathways",
+    "title": "تعلم بخطوات واضحة",
+    "file": "pages/learning-pathways.html"
+  },
+  {
+    "screen_id": "lexicon-detail",
+    "title": "سَلِمَ",
+    "file": "pages/lexicon-entry.html"
+  },
+  {
+    "screen_id": "lexicon",
+    "title": "المعجم والقاموس",
+    "file": "pages/lexicon.html"
+  },
+  {
+    "screen_id": "library-aqidah",
+    "title": "العقيدة وإصلاح القلب",
+    "file": "pages/library-aqidah.html"
+  },
+  {
+    "screen_id": "library-fiqh",
+    "title": "فقه العبادات والمعاملات",
+    "file": "pages/library-fiqh.html"
+  },
+  {
+    "screen_id": "library-hadith",
+    "title": "السنة النبوية ومصنفاتها",
+    "file": "pages/library-sunnah.html"
+  },
+  {
+    "screen_id": "library-tafsir",
+    "title": "تفسير القرآن وعلومه",
+    "file": "pages/library-tafsir.html"
+  },
+  {
+    "screen_id": "library",
+    "title": "المعرفة الإسلامية",
+    "file": "pages/library.html",
+    "description": "الكتب والمقالات والمعاجم والقواميس وقصص الأنبياء."
+  },
+  {
+    "screen_id": "guidance",
+    "title": "الدليل الإسلامي",
+    "file": "pages/muslim-guide.html"
+  },
+  {
+    "screen_id": "name-detail",
+    "title": "شرح أسماء الله الحسنى",
+    "file": "pages/name-detail.html"
+  },
+  {
+    "screen_id": "names",
+    "title": "أسماء الله الحسنى",
+    "file": "pages/names.html"
+  },
+  {
+    "screen_id": "pathway-detail",
+    "title": "مسار التعلم",
+    "file": "pages/pathway-detail.html"
+  },
+  {
+    "screen_id": "prayer",
+    "title": "مواقيت الصلاة",
+    "file": "pages/prayer-times.html"
+  },
+  {
+    "screen_id": "medicine",
+    "title": "الطب النبوي في مصادره",
+    "file": "pages/prophetic-medicine.html"
+  },
+  {
+    "screen_id": "quiz",
+    "title": "الاختبارات والمسابقات",
+    "file": "pages/quizzes.html"
+  },
+  {
+    "screen_id": "memorization",
+    "title": "حفظ القرآن الكريم",
+    "file": "pages/quran-memorization.html"
+  },
+  {
+    "screen_id": "quran-sciences",
+    "title": "تفسير القرآن وعلومه",
+    "file": "pages/quran-sciences.html",
+    "description": "بوابة منظمة لفهم القرآن الكريم وعلومه."
+  },
+  {
+    "screen_id": "quran",
+    "title": "سُورَةُ مَرْيَمَ (مكية • ٩٨ آية • الجزء ١٦ • صفحة ٣٠٥)",
+    "file": "pages/quran.html"
+  },
+  {
+    "screen_id": "audio",
+    "title": "الصوتيات والمدائح النبوية",
+    "file": "pages/recitations.html"
+  },
+  {
+    "screen_id": "share-cards",
+    "title": "بطاقات معرفية قابلة للمشاركة",
+    "file": "pages/share-cards.html"
+  },
+  {
+    "screen_id": "store",
+    "title": "اختيارات نافعة في مكان واحد",
+    "file": "pages/store.html"
+  },
+  {
+    "screen_id": "habits",
+    "title": "متابعة العبادات والعادات",
+    "file": "pages/worship-tracker.html"
+  },
+  {
+    "screen_id": "zakat",
+    "title": "حاسبة الزكاة المتقدمة",
+    "file": "pages/zakat-calculator.html"
+  },
+  {
+    "screen_id": "tafsir",
+    "title": "قارئ تفسير القرآن الكريم",
+    "file": "pages/tafsir.html",
+    "description": "اختر السورة والآية ومصدر التفسير."
+  },
+  {
+    "screen_id": "asbab-alnuzul",
+    "title": "أسباب النزول",
+    "file": "pages/asbab-alnuzul.html"
+  },
+  {
+    "screen_id": "surah-virtues",
+    "title": "فضائل السور والآيات",
+    "file": "pages/surah-virtues.html"
+  },
+  {
+    "screen_id": "quran-translations",
+    "title": "ترجمات معاني القرآن",
+    "file": "pages/quran-translations.html"
+  },
+  {
+    "screen_id": "imsakiyah",
+    "title": "إمساكية رمضان",
+    "file": "pages/imsakiyah.html"
+  },
+  {
+    "screen_id": "pillars",
+    "title": "أركان الإسلام والإيمان",
+    "file": "pages/pillars.html"
+  },
+  {
+    "screen_id": "word-of-day",
+    "title": "كلمة اليوم",
+    "file": "pages/word-of-day.html"
+  },
+  {
+    "screen_id": "search",
+    "title": "نتائج البحث",
+    "file": "pages/search.html",
+    "description": "نتائج البحث في المنصة الإسلامية"
+  },
+  {
+    "screen_id": "duas",
+    "title": "الأدعية المأثورة",
+    "file": "pages/duas.html",
+    "description": "الأدعية القرآنية والنبوية حسب الموضوع"
+  },
+  {
+    "screen_id": "sunnahs",
+    "title": "السنن والآداب",
+    "file": "pages/sunnahs.html",
+    "description": "السنن اليومية والآداب النبوية"
+  },
+  {
+    "screen_id": "rulings",
+    "title": "الأحكام والمسائل الفقهية",
+    "file": "pages/rulings.html",
+    "description": "فهرس الأحكام الشرعية حسب أبواب الفقه"
+  },
+  {
+    "screen_id": "madhhab-hanafi",
+    "title": "المذهب الحنفي",
+    "file": "pages/madhhab-hanafi.html",
+    "description": "المذهب الحنفي: أبوابه ومصادره"
+  },
+  {
+    "screen_id": "madhhab-maliki",
+    "title": "المذهب المالكي",
+    "file": "pages/madhhab-maliki.html",
+    "description": "المذهب المالكي: أبوابه ومصادره"
+  },
+  {
+    "screen_id": "madhhab-shafii",
+    "title": "المذهب الشافعي",
+    "file": "pages/madhhab-shafii.html",
+    "description": "المذهب الشافعي: أبوابه ومصادره"
+  },
+  {
+    "screen_id": "madhhab-hanbali",
+    "title": "المذهب الحنبلي",
+    "file": "pages/madhhab-hanbali.html",
+    "description": "المذهب الحنبلي: أبوابه ومصادره"
+  },
+  {
+    "screen_id": "sirah",
+    "title": "السيرة النبوية",
+    "file": "pages/sirah.html",
+    "description": "السيرة النبوية وأحداثها ومصادرها"
+  },
+  {
+    "screen_id": "prophets",
+    "title": "قصص الأنبياء",
+    "file": "pages/prophets.html",
+    "description": "قصص الأنبياء في القرآن الكريم"
+  },
+  {
+    "screen_id": "companions",
+    "title": "الصحابة رضي الله عنهم",
+    "file": "pages/companions.html",
+    "description": "الصحابة وتراجمهم ومصادرهم"
+  },
+  {
+    "screen_id": "islamic-history",
+    "title": "التاريخ الإسلامي",
+    "file": "pages/islamic-history.html",
+    "description": "التاريخ الإسلامي والغزوات والفتوحات"
+  },
+  {
+    "screen_id": "afterlife",
+    "title": "اليوم الآخر وأشراط الساعة",
+    "file": "pages/afterlife.html",
+    "description": "اليوم الآخر وأشراط الساعة في مصادر العقيدة"
+  },
+  {
+    "screen_id": "dreams",
+    "title": "كتب تعبير الرؤى",
+    "file": "pages/dreams.html",
+    "description": "كتب تعبير الرؤى وحدود تفسير الأحلام"
+  },
+  {
+    "screen_id": "quiz-rooms",
+    "title": "غرف المسابقات الجماعية",
+    "file": "pages/quiz-rooms.html",
+    "description": "غرف مسابقات إسلامية خاصة للأصدقاء"
+  },
+  {
+    "screen_id": "friends-challenges",
+    "title": "تحديات الأصدقاء",
+    "file": "pages/friends-challenges.html",
+    "description": "تحديات ومسابقات خاصة بين الأصدقاء"
+  },
+  {
+    "screen_id": "quran-wird",
+    "title": "الورد القرآني اليومي",
+    "file": "pages/quran-wird.html",
+    "description": "الورد القرآني اليومي — مساحة خاصة"
+  },
+  {
+    "screen_id": "khatma",
+    "title": "خطة ختمة القرآن",
+    "file": "pages/khatma.html",
+    "description": "خطة ختمة القرآن الكريم — مساحة خاصة"
+  },
+  {
+    "screen_id": "notifications",
+    "title": "الإشعارات",
+    "file": "pages/account-notifications.html",
+    "description": "سجل الإشعارات وتفضيلاتها"
+  },
+  {
+    "screen_id": "downloads",
+    "title": "التنزيلات",
+    "file": "pages/account-downloads.html",
+    "description": "إدارة التنزيلات والمواد المحفوظة"
+  },
+  {
+    "screen_id": "my-library",
+    "title": "مكتبتي الخاصة",
+    "file": "pages/account-library.html",
+    "description": "مكتبتي ومحفوظاتي الخاصة"
+  },
+  {
+    "screen_id": "privacy",
+    "title": "الخصوصية وبيانات الحساب",
+    "file": "pages/account-privacy.html",
+    "description": "إعدادات الخصوصية وطلبات البيانات"
+  },
+  {
+    "screen_id": "submissions",
+    "title": "مساهماتي وطلباتي",
+    "file": "pages/account-submissions.html",
+    "description": "متابعة المساهمات والطلبات الخاصة"
+  },
+  {
+    "screen_id": "family",
+    "title": "العائلة ووضع الأطفال",
+    "file": "pages/account-family.html",
+    "description": "إدارة العائلة وملفات الأطفال"
+  },
+  {
+    "screen_id": "settings",
+    "title": "إعدادات الحساب",
+    "file": "pages/account-settings.html",
+    "description": "إعدادات الحساب والتخصيص"
+  },
+  {
+    "screen_id": "submit-material",
+    "title": "إرسال كتاب أو مادة للمراجعة",
+    "file": "pages/submit-material.html",
+    "description": "إرسال الكتب والمواد الإسلامية للمراجعة"
+  },
+  {
+    "screen_id": "studio",
+    "title": "انشر علمًا نافعًا",
+    "file": "pages/studio.html",
+    "description": "النشر وصناعة المحتوى الإسلامي"
+  },
+  {
+    "screen_id": "about",
+    "title": "عن المنصة",
+    "file": "pages/about.html",
+    "description": "عن المنصة الإسلامية ورسالتها"
+  },
+  {
+    "screen_id": "contact",
+    "title": "تواصل معنا",
+    "file": "pages/contact.html",
+    "description": "التواصل والدعم والإبلاغ عن مشكلة"
+  },
+  {
+    "screen_id": "privacy-policy",
+    "title": "سياسة الخصوصية",
+    "file": "pages/privacy-policy.html",
+    "description": "توضح هذه الصفحة مبادئ جمع البيانات واستخدامها وحقوق المستخدم وطلبات التصدير والحذف."
+  },
+  {
+    "screen_id": "terms",
+    "title": "شروط الاستخدام",
+    "file": "pages/terms.html",
+    "description": "تحدد شروط الاستخدام حدود إتاحة المحتوى والخدمات والحسابات والمشتريات والمساهمات."
+  },
+  {
+    "screen_id": "content-policy",
+    "title": "سياسة المحتوى والمراجعة",
+    "file": "pages/content-policy.html",
+    "description": "تشرح معايير استقبال المواد الإسلامية ومراجعتها ونشرها وتصحيحها أو إيقافها."
+  },
+  {
+    "screen_id": "children-safety",
+    "title": "سلامة الأطفال",
+    "file": "pages/children-safety.html",
+    "description": "توضح مبادئ وضع الأطفال وحماية بياناتهم وإدارة ملفاتهم بواسطة ولي الأمر."
+  },
+  {
+    "screen_id": "pricing",
+    "title": "الأسعار والاشتراكات",
+    "file": "pages/pricing.html",
+    "description": "خطط مجاني وPlus وFamily والتجربة المجانية."
+  },
+  {
+    "screen_id": "support",
+    "title": "مركز المساعدة والدعم",
+    "file": "pages/support.html",
+    "description": "مسارات الدعم والبلاغات والاقتراحات والتواصل."
+  },
+  {
+    "screen_id": "qiraat",
+    "title": "القراءات والروايات",
+    "file": "pages/qiraat.html",
+    "description": "مقدمة وفهرس القراءات والروايات وضوابط عرضها."
+  },
+  {
+    "screen_id": "shamail",
+    "title": "الشمائل النبوية",
+    "file": "pages/shamail.html",
+    "description": "أبواب الشمائل والهدي النبوي ومصادرها."
+  },
+  {
+    "screen_id": "books",
+    "title": "الكتب الإسلامية",
+    "file": "pages/books.html",
+    "description": "فهرس الكتب حسب المجال مع تفاصيل الكتاب والحفظ للقراءة لاحقًا."
+  }
+]

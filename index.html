@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#173b2b" name="theme-color"/>
+<meta content="منصة إسلامية تجمع القرآن والسنة والعبادات والمعرفة الإسلامية في تجربة واضحة ومريحة." name="description"/>
+<title>المنصة الإسلامية | القرآن والسنة والمعرفة</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;family=Amiri:wght@400;700&amp;family=Noto+Naskh+Arabic:wght@400;600;700&amp;display=swap">
+<link href="assets/css/site.css" rel="stylesheet"/>
+<link href="assets/css/articles.css" rel="stylesheet"/>
+<link href="assets/css/home-refresh.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="assets/js/tailwind-config.js"></script>
+<link rel="stylesheet" href="assets/css/design-system.css"><script>(function(){try{var d=localStorage.getItem("platform-theme")==="dark";document.documentElement.classList.toggle("dark",d);document.documentElement.classList.toggle("light",!d);}catch(e){}})();</script></head>
+<body class="min-h-screen flex flex-col w-full">
+<div id="site-header-root"></div>
+<main class="flex-1 w-full">
+<div class="screen-view w-full page-index" id="screen-home">
+
+  <!-- Home hero: clear statement, one search field, no decorative gimmicks. -->
+  <section class="home-v43-hero" aria-labelledby="home-v43-title">
+    <div class="home-v43-hero-glow" aria-hidden="true"></div>
+    <div class="home-v43-hero-inner">
+      <div class="home-v43-hero-copy">
+        <div class="home-v43-eyebrow"><span class="ui-icon" data-icon="book-open-check"></span> القرآن الكريم · السنة النبوية · المعرفة الإسلامية</div>
+        <h1 id="home-v43-title">معرفةٌ تقرّبك، وقراءةٌ تمنح يومك معنى</h1>
+        <p>مكان واحد تقرأ فيه القرآن، وتتعرف إلى السنة، وتتعلّم أحكام دينك، وتصل إلى مصادر المعرفة الإسلامية بسهولة وهدوء.</p>
+        <div class="home-v43-search" role="search">
+          <span class="ui-icon" data-icon="search" aria-hidden="true"></span>
+          <input aria-label="بحث في المنصة" onkeydown="if(event.key==='Enter'){openSearchResults(this.value);}" placeholder="ابحث عن آية أو حديث أو تفسير أو كتاب أو مسألة..." type="search"/>
+          <button onclick="openSearchResults(document.querySelector('.home-v43-search input').value)" type="button">ابحث الآن</button>
+        </div>
+        <div class="home-v43-quick-links" aria-label="روابط سريعة">
+          <span>ابدأ مباشرة</span>
+          <button onclick="showScreen('quran')">المصحف</button>
+          <button onclick="showScreen('hadith')">موسوعة الحديث</button>
+          <button onclick="showScreen('adhkar')">الأذكار</button>
+          <button onclick="showScreen('library')">المعرفة الإسلامية</button>
+        </div>
+      </div>
+      <aside class="home-v43-hero-aside" aria-label="أبواب المنصة">
+        <div class="home-v43-aside-top"><span>تصفّح بهدوء</span><span class="ui-icon" data-icon="arrow-up-left"></span></div>
+        <a href="#home-v43-sections" class="home-v43-aside-main" onclick="document.getElementById('home-v43-sections').scrollIntoView({behavior:'smooth'});return false;">
+          <span class="home-v43-aside-mark"><span class="ui-icon" data-icon="library-big"></span></span>
+          <span><strong>أبواب مرتبة</strong><small>انتقل إلى القسم الذي تبحث عنه دون ازدحام.</small></span>
+          <span class="ui-icon home-v43-aside-arrow" data-icon="arrow-left"></span>
+        </a>
+        <div class="home-v43-aside-list">
+          <div><span class="home-v43-aside-number">01</span><span>قراءة القرآن وتدبّره</span></div>
+          <div><span class="home-v43-aside-number">02</span><span>فهم السنة النبوية</span></div>
+          <div><span class="home-v43-aside-number">03</span><span>التعلّم والعبادات اليومية</span></div>
+        </div>
+      </aside>
+    </div>
+    <div class="home-v43-hero-bottom"><span>ابدأ بما تحتاجه اليوم</span><span class="home-v43-scroll-cue"><span class="ui-icon" data-icon="chevron-down"></span></span></div>
+  </section>
+
+  <div class="home-v43-wrap">
+    <!-- Daily utility strip -->
+    <section class="home-v43-daily-strip" aria-label="اختصارات يومية">
+      <a class="home-v43-daily-item" href="#" onclick="showScreen('prayer');return false;">
+        <span class="home-v43-daily-icon prayer"><span class="ui-icon" data-icon="clock-3"></span></span>
+        <span class="home-v43-daily-copy"><small>العبادات اليومية</small><strong>مواقيت الصلاة</strong></span>
+        <span class="ui-icon home-v43-chevron" data-icon="arrow-left"></span>
+      </a>
+      <a class="home-v43-daily-item" href="#" onclick="showScreen('adhkar');return false;">
+        <span class="home-v43-daily-icon adhkar"><span class="ui-icon" data-icon="sunrise"></span></span>
+        <span class="home-v43-daily-copy"><small>وردك اليومي</small><strong>الأذكار</strong></span>
+        <span class="ui-icon home-v43-chevron" data-icon="arrow-left"></span>
+      </a>
+      <a class="home-v43-daily-item" href="#" onclick="showScreen('duas');return false;">
+        <span class="home-v43-daily-icon dua"><span class="ui-icon" data-icon="hand-heart"></span></span>
+        <span class="home-v43-daily-copy"><small>من القرآن والسنة</small><strong>الأدعية</strong></span>
+        <span class="ui-icon home-v43-chevron" data-icon="arrow-left"></span>
+      </a>
+      <a class="home-v43-daily-item" href="#" onclick="showScreen('quran-wird');return false;">
+        <span class="home-v43-daily-icon wird"><span class="ui-icon" data-icon="book-open"></span></span>
+        <span class="home-v43-daily-copy"><small>قراءة منتظمة</small><strong>الورد القرآني</strong></span>
+        <span class="ui-icon home-v43-chevron" data-icon="arrow-left"></span>
+      </a>
+    </section>
+
+    <!-- Four primary areas: this reflects the real product structure. -->
+    <section class="home-v43-section" id="home-v43-sections">
+      <div class="home-v43-section-heading">
+        <div><span class="home-v43-kicker">تصفّح المنصة</span><h2>أبوابك الرئيسية</h2><p>ابدأ من أحد الأقسام الأساسية، ثم انتقل إلى التفاصيل التي تهمك.</p></div>
+        <button class="home-v43-text-link" onclick="showScreen('discover')">عرض كل الأقسام <span class="ui-icon" data-icon="arrow-left"></span></button>
+      </div>
+      <div class="home-v43-category-grid">
+        <button class="home-v43-category quran" onclick="showScreen('quran')">
+          <span class="home-v43-category-icon"><span class="ui-icon" data-icon="book-open"></span></span>
+          <span class="home-v43-category-index">01 / القرآن الكريم</span>
+          <strong>اقرأ وتدبّر</strong><small>المصحف، التفاسير، القراءات، وأسباب النزول.</small>
+          <span class="home-v43-category-arrow"><span class="ui-icon" data-icon="arrow-left"></span></span>
+        </button>
+        <button class="home-v43-category hadith" onclick="showScreen('hadith')">
+          <span class="home-v43-category-icon"><span class="ui-icon" data-icon="scroll-text"></span></span>
+          <span class="home-v43-category-index">02 / السنة النبوية</span>
+          <strong>تعرّف إلى الهدي النبوي</strong><small>الأحاديث، الشروح، التخريج، والشمائل.</small>
+          <span class="home-v43-category-arrow"><span class="ui-icon" data-icon="arrow-left"></span></span>
+        </button>
+        <button class="home-v43-category worship" onclick="showScreen('prayer')">
+          <span class="home-v43-category-icon"><span class="ui-icon" data-icon="calendar-check"></span></span>
+          <span class="home-v43-category-index">03 / العبادات والأدوات</span>
+          <strong>نظّم عباداتك اليومية</strong><small>الصلاة، الأذكار، الأدعية، الزكاة، والتقويم.</small>
+          <span class="home-v43-category-arrow"><span class="ui-icon" data-icon="arrow-left"></span></span>
+        </button>
+        <button class="home-v43-category knowledge" onclick="showScreen('library')">
+          <span class="home-v43-category-icon"><span class="ui-icon" data-icon="library"></span></span>
+          <span class="home-v43-category-index">04 / المعرفة الإسلامية</span>
+          <strong>اقرأ وتعلّم بتدرّج</strong><small>الكتب، المقالات، المعاجم، وقصص الأنبياء.</small>
+          <span class="home-v43-category-arrow"><span class="ui-icon" data-icon="arrow-left"></span></span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Real photography belongs in editorial cards, not page banners. -->
+    <section class="home-v43-section home-v43-editorial">
+      <div class="home-v43-section-heading">
+        <div><span class="home-v43-kicker">من داخل المنصة</span><h2>مساحات للقراءة والتعلّم</h2><p>محتوى متنوع، من القراءة الفردية إلى التعمق في أبواب العلم.</p></div>
+        <button class="home-v43-text-link" onclick="showScreen('discover')">استكشف المحتوى <span class="ui-icon" data-icon="arrow-left"></span></button>
+      </div>
+      <div class="home-v43-editorial-grid">
+        <a class="home-v43-photo-card photo-quran" href="#" onclick="showScreen('quran');return false;">
+          <img src="https://images.pexels.com/photos/35082982/pexels-photo-35082982.jpeg?cs=srgb&amp;dl=pexels-khaled-hegazy-302581620-35082982.jpg&amp;fm=jpg" alt="مصحف مفتوح داخل مسجد" loading="lazy"/>
+          <span class="home-v43-photo-overlay"><small>القرآن الكريم</small><strong>اجعل للقرآن مساحة في يومك</strong><span>افتح المصحف <span class="ui-icon" data-icon="arrow-left"></span></span></span>
+        </a>
+        <a class="home-v43-photo-card photo-mosque" href="#" onclick="showScreen('prayer');return false;">
+          <img src="https://images.pexels.com/photos/33840659/pexels-photo-33840659.jpeg?cs=srgb&amp;dl=pexels-ahmed-salama-2154575079-33840659.jpg&amp;fm=jpg" alt="داخل مسجد بإضاءة هادئة" loading="lazy"/>
+          <span class="home-v43-photo-overlay"><small>العبادات اليومية</small><strong>خطوات بسيطة تنظّم يومك</strong><span>إلى مواقيت الصلاة <span class="ui-icon" data-icon="arrow-left"></span></span></span>
+        </a>
+        <a class="home-v43-photo-card photo-library" href="#" onclick="showScreen('library');return false;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Islamic_books_shelf.jpg?width=1600" alt="رفوف كتب ومراجع" loading="lazy"/>
+          <span class="home-v43-photo-overlay"><small>المعرفة الإسلامية</small><strong>مصادر تتدرج بك في المعرفة</strong><span>تصفّح المكتبة <span class="ui-icon" data-icon="arrow-left"></span></span></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Daily editorial cards -->
+    <section class="home-v43-section">
+      <div class="home-v43-section-heading">
+        <div><span class="home-v43-kicker">وقفة معرفية</span><h2>زاد اليوم</h2><p>نماذج قصيرة تفتح لك بابًا للقراءة الأوسع.</p></div>
+        <button class="home-v43-text-link" onclick="showScreen('discover')">المزيد من المحتوى <span class="ui-icon" data-icon="arrow-left"></span></button>
+      </div>
+      <div class="home-v43-daily-grid">
+        <article class="home-v43-knowledge-card verse">
+          <div class="home-v43-card-label"><span class="ui-icon" data-icon="book-open"></span> آية وتدبّر</div>
+          <div class="home-v43-verse-text">﴿ فَإِنَّ مَعَ الْعُسْرِ يُسْرًا ﴾</div>
+          <p>تذكير بأن العسر لا ينفرد بالمشهد، وأن مع الصبر والرجاء أبوابًا من اليسر.</p>
+          <div class="home-v43-card-footer"><small>سورة الشرح · الآية ٥</small><button onclick="showScreen('quran')">افتح المصحف <span class="ui-icon" data-icon="arrow-left"></span></button></div>
+        </article>
+        <article class="home-v43-knowledge-card hadith">
+          <div class="home-v43-card-label"><span class="ui-icon" data-icon="scroll-text"></span> من السنة</div>
+          <div class="home-v43-hadith-text">«مَن سلك طريقًا يلتمس فيه علمًا، سهَّل الله له به طريقًا إلى الجنة»</div>
+          <p>فضل طلب العلم والسعي إليه، وأن الطريق إلى العلم عبادة يؤجر عليها المسلم.</p>
+          <div class="home-v43-card-footer"><small>رواه مسلم</small><button onclick="showScreen('hadith')">اقرأ الحديث <span class="ui-icon" data-icon="arrow-left"></span></button></div>
+        </article>
+        <article class="home-v43-knowledge-card word">
+          <div class="home-v43-card-label"><span class="ui-icon" data-icon="book-text"></span> مفردة قرآنية</div>
+          <div class="home-v43-word-text">السَّكِينَة</div>
+          <p>الطمأنينة والوقار والثبات الذي يسكن به القلب ويهدأ.</p>
+          <div class="home-v43-card-footer"><small>من مفردات القرآن</small><button onclick="showScreen('lexicon')">ابحث في المعجم <span class="ui-icon" data-icon="arrow-left"></span></button></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Learning cards with concise, actionable descriptions. -->
+    <section class="home-v43-section">
+      <div class="home-v43-section-heading">
+        <div><span class="home-v43-kicker">تعلّم بتدرّج</span><h2>مسارات تساعدك على البداية</h2><p>مداخل منظّمة للموضوعات الأساسية، دون أن تتشتت بين الصفحات.</p></div>
+        <button class="home-v43-text-link" onclick="showScreen('pathways')">كل المسارات <span class="ui-icon" data-icon="arrow-left"></span></button>
+      </div>
+      <div class="home-v43-path-grid">
+        <a class="home-v43-path-card" href="#" onclick="showScreen('quran-sciences');return false;"><span class="home-v43-path-icon sage"><span class="ui-icon" data-icon="book-open-check"></span></span><div><small>علوم القرآن</small><strong>مدخل إلى تدبّر القرآن</strong><p>السياق والمعاني ومقاصد السور والرجوع إلى التفسير.</p></div><span class="ui-icon home-v43-path-arrow" data-icon="arrow-left"></span></a>
+        <a class="home-v43-path-card" href="#" onclick="showScreen('hadith');return false;"><span class="home-v43-path-icon sand"><span class="ui-icon" data-icon="scroll-text"></span></span><div><small>السنة النبوية</small><strong>قراءة في الأربعين النووية</strong><p>أحاديث جامعة مع شرح المفردات والمعاني والفوائد.</p></div><span class="ui-icon home-v43-path-arrow" data-icon="arrow-left"></span></a>
+        <a class="home-v43-path-card" href="#" onclick="showScreen('rulings');return false;"><span class="home-v43-path-icon blue"><span class="ui-icon" data-icon="scale"></span></span><div><small>فقه العبادات</small><strong>أساسيات الطهارة والصلاة</strong><p>مدخل مرتب للأحكام والسنن المتعلقة بالعبادات.</p></div><span class="ui-icon home-v43-path-arrow" data-icon="arrow-left"></span></a>
+      </div>
+    </section>
+
+    <!-- Knowledge and audio destinations, one entry per actual destination. -->
+    <section class="home-v43-bottom-grid">
+      <article class="home-v43-bottom-panel">
+        <div class="home-v43-bottom-heading"><div><span class="home-v43-kicker">المعرفة الإسلامية</span><h2>تعمّق في الموضوعات</h2></div><button class="home-v43-text-link" onclick="showScreen('library')">المكتبة <span class="ui-icon" data-icon="arrow-left"></span></button></div>
+        <div class="home-v43-topic-list">
+          <button onclick="showScreen('sirah')"><span class="ui-icon" data-icon="book-open"></span><span><strong>السيرة النبوية</strong><small>الأحداث والمصادر</small></span><span class="ui-icon" data-icon="arrow-left"></span></button>
+          <button onclick="showScreen('prophets')"><span class="ui-icon" data-icon="landmark"></span><span><strong>قصص الأنبياء</strong><small>القصص القرآني ومواضع الآيات</small></span><span class="ui-icon" data-icon="arrow-left"></span></button>
+          <button onclick="showScreen('companions')"><span class="ui-icon" data-icon="users"></span><span><strong>الصحابة</strong><small>تراجم ومواقف ومراجع</small></span><span class="ui-icon" data-icon="arrow-left"></span></button>
+          <button onclick="showScreen('rulings')"><span class="ui-icon" data-icon="scale"></span><span><strong>الأحكام الفقهية</strong><small>مسائل مرتبة بحسب أبواب الفقه</small></span><span class="ui-icon" data-icon="arrow-left"></span></button>
+        </div>
+      </article>
+      <article class="home-v43-audio-panel">
+        <div class="home-v43-audio-icon"><span class="ui-icon" data-icon="audio-lines"></span></div>
+        <span class="home-v43-kicker">استمع وتعلّم</span>
+        <h2>الصوتيات والتلاوات والمدائح</h2>
+        <p>اجمع التلاوات والقراء والإذاعات والمدائح النبوية في مساحة استماع واحدة.</p>
+        <button onclick="showScreen('audio')">افتح المكتبة الصوتية <span class="ui-icon" data-icon="arrow-left"></span></button>
+      </article>
+    </section>
+
+    <section class="home-v43-closing">
+      <div><span class="home-v43-kicker">خطوتك التالية</span><h2>اختر بابًا، وابدأ رحلة تعلّمك</h2><p>كل قسم يقودك إلى محتوى أكثر تفصيلًا ومصادر يمكنك الرجوع إليها.</p></div>
+      <button onclick="showScreen('discover')">استكشف المنصة <span class="ui-icon" data-icon="arrow-left"></span></button>
+    </section>
+  </div>
+</div>
+</main>
+<div id="account-modal-root"></div><div id="site-footer-root"></div><div id="mobile-nav-root"></div>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/store-cart.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/page-router.js"></script>
+<script src="assets/js/motion.js"></script>
+<script src="assets/js/design-system.js"></script></body>
+</html>
